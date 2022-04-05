@@ -16,14 +16,12 @@ import javax.validation.Valid;
 
 @Controller
 public class BidListController {
-    // TODO: Inject Bid service
     @Autowired
     private BidListService bidListService;
 
     @RequestMapping("/bidList/list")
     public String home(Model model)
     {
-        // TODO: call service find all bids to show to the view
         model.addAttribute("bidListList",bidListService.getBidListList());
         return "bidList/list";
     }

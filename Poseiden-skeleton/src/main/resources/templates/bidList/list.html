@@ -43,7 +43,13 @@
 				<td th:text="${bidList.getAccount()}"></td>
 				<td th:text="${bidList.getType()}"></td>
 				<td th:text="${bidList.getBidQuantity()}"></td>
-				<td>Button Edit - Button Delete</td>
+				<td>
+					<a th:href="@{/bidList/update/{id}(id=${bidList.bidListId})}">
+						<button type="button" class="btn btn-warning">Edit</button>
+					</a>
+					<a href="/bidList/list">
+						<button type="button" class="btn btn-danger">Delete</button>
+					</a></td>
 			</tr>
 			</tbody>
 		</table>

@@ -68,10 +68,16 @@ public class BidListController {
         return "bidList/list";
     }
 
+    /**
+     * Get /bidList/update/{id}
+     * @param id is the id of the bid
+     * @param model is used for the html template
+     * @return bidList/update
+     */
     @GetMapping("/bidList/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get Bid by Id and to model then show to the form
-        model.addAttribute("bid", bidListService.getBidListById(id));
+        log.info("GET /bidList/update/{}",id);
+        model.addAttribute("bidList", bidListService.getBidListById(id));
         return "bidList/update";
     }
 

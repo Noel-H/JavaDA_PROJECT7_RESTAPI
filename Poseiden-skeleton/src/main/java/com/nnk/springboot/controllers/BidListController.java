@@ -26,7 +26,7 @@ public class BidListController {
 
     /**
      * Get /bidList/list
-     * @param model used for the html template
+     * @param model is used for the html template
      * @return bidList/list.html
      */
     @RequestMapping("/bidList/list")
@@ -36,15 +36,36 @@ public class BidListController {
         return "bidList/list";
     }
 
+    /**
+     * Get /bidList/add
+     * @param bid is used as attribute for the html template
+     * @param model is used for the html template
+     * @return bidList/add
+     */
     @GetMapping("/bidList/add")
-    public String addBidForm(BidList bid) {
+    public String addBidForm(BidList bid, Model model) {
+        log.info("GET /bidList/add");
+        model.addAttribute("bidList", bid);
         return "bidList/add";
     }
 
+    /**
+     * Post /bidList/validate
+     * @param bid is the object that need to be validate
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return bidList/list if no error or bidList/add if error
+     */
     @PostMapping("/bidList/validate")
     public String validate(@Valid BidList bid, BindingResult result, Model model) {
-        // TODO: check data valid and save to db, after saving return bid list
-        return "bidList/add";
+        log.info("POST /bidList/validate");
+        if (result.hasErrors()){
+            log.error("POST /bidList/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            return "bidList/add";
+        }
+        bidListService.addBidList(bid);
+        model.addAttribute("bidListList",bidListService.getBidListList());
+        return "bidList/list";
     }
 
     @GetMapping("/bidList/update/{id}")
@@ -56,7 +77,7 @@ public class BidListController {
 
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
-                             BindingResult result, Model model) {
+                            BindingResult result, Model model) {
         // TODO: check required fields, if valid call service to update Bid and return list Bid
         return "redirect:/bidList/list";
     }

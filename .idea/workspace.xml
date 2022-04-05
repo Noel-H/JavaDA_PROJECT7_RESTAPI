@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="test added for BidListController home method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" afterDir="false" />
-    </list>
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : check data valid and save to db, after saving return bid list" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,7 +91,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="BidListControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.validate_Without_Account_Should_Return_Bad_Request" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -104,28 +101,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BidListControllerTest.home" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="home" />
+      <option name="METHOD_NAME" value="validate_Without_Account_Should_Return_Bad_Request" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.home_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.validate_Without_Account_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -135,13 +117,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="home_Should_Return_Ok" />
+      <option name="METHOD_NAME" value="validate_Without_Account_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.test_Home_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.validate_Without_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -151,23 +133,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="test_Home_Should_Return_Ok" />
+      <option name="METHOD_NAME" value="validate_Without_Bid_Quantity_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListServiceTest.getBidListList_Should_Return_List" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.validate_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.BidListServiceTest" />
-      <option name="METHOD_NAME" value="getBidListList_Should_Return_List" />
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="validate_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BidListControllerTest.validate_Without_Type_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="validate_Without_Type_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BidListServiceTest.getBidListList_Should_Return_List" />
-        <item itemvalue="JUnit.BidListControllerTest.home_Should_Return_Ok" />
-        <item itemvalue="JUnit.BidListControllerTest.test_Home_Should_Return_Ok" />
-        <item itemvalue="JUnit.BidListControllerTest" />
-        <item itemvalue="JUnit.BidListControllerTest.home" />
+        <item itemvalue="JUnit.BidListControllerTest.validate_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.validate_Without_Bid_Quantity_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.validate_Without_Type_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.validate_Without_Account_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.validate_Without_Account_Should_Return_Bad_Request" />
       </list>
     </recent_temporary>
   </component>
@@ -292,7 +290,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649157611746</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="work done for : TODO call service find all bids to show to the view">
+      <created>1649158062134</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1649158062134</updated>
+    </task>
+    <task id="LOCAL-00015" summary="work done for TODO : check data valid and save to db, after saving return bid list">
+      <created>1649196644387</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1649196644387</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +331,8 @@
     <MESSAGE value="gitignore modified" />
     <MESSAGE value="gitignore updated" />
     <MESSAGE value="test added for BidListController home method" />
-    <option name="LAST_COMMIT_MESSAGE" value="test added for BidListController home method" />
+    <MESSAGE value="work done for : TODO call service find all bids to show to the view" />
+    <MESSAGE value="work done for TODO : check data valid and save to db, after saving return bid list" />
+    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : check data valid and save to db, after saving return bid list" />
   </component>
 </project>

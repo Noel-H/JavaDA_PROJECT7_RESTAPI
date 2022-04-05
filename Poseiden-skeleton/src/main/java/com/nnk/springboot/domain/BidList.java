@@ -3,6 +3,7 @@ package com.nnk.springboot.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.sql.Timestamp;
 
 /**
@@ -16,9 +17,17 @@ public class BidList {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer BidListId;
+
+    @NotBlank
     private String account;
+
+    @NotBlank
     private String type;
+
+    @Digits(integer = 5,fraction = 2)
+    @NotNull
     private Double bidQuantity;
+
     private Double askQuantity;
     private Double bid;
     private Double ask;

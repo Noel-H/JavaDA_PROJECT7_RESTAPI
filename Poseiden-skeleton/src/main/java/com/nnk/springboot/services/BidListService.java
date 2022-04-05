@@ -23,4 +23,8 @@ public class BidListService {
         return bidListRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("BidList : " +id+ " not found"));
     }
+
+    public BidList addBidList(BidList bid) {
+        return bidListRepository.save(bid);
+    }
 }

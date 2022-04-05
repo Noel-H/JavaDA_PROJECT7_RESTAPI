@@ -1,5 +1,6 @@
 package com.nnk.springboot.services;
 
+import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.repositories.BidListRepository;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -21,8 +22,15 @@ public class BidListServiceTest extends TestCase {
     private BidListService bidListService;
 
     @Test
-    public void getBidListList_Should_Return_List(){
+    public void getBidListList_Should_Work(){
         bidListService.getBidListList();
         verify(bidListRepository,times(1)).findAll();
+    }
+
+    @Test
+    public void addBidList_Should_Work(){
+        BidList bidList = new BidList();
+        bidListService.addBidList(bidList);
+        verify(bidListRepository,times(1)).save(bidList);
     }
 }

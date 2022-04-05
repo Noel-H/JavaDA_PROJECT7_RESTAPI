@@ -168,7 +168,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649146576164</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gitignore updated">
+      <created>1649146636362</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649146636362</updated>
+    </task>
+    <task id="LOCAL-00010" summary="gitignore updated">
+      <created>1649146681789</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1649146681789</updated>
+    </task>
+    <task id="LOCAL-00011" summary="gitignore updated">
+      <created>1649146725318</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1649146725318</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

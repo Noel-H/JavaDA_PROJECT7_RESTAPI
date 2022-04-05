@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.services.BidListService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,15 +14,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
-
+/**
+ * BidList Controller
+ */
+@Slf4j
 @Controller
 public class BidListController {
+
     @Autowired
     private BidListService bidListService;
 
+    /**
+     * Get /bidList/list
+     * @param model used for the html template
+     * @return bidList/list.html
+     */
     @RequestMapping("/bidList/list")
-    public String home(Model model)
-    {
+    public String home(Model model) {
+        log.info("GET /bidList/list");
         model.addAttribute("bidListList",bidListService.getBidListList());
         return "bidList/list";
     }

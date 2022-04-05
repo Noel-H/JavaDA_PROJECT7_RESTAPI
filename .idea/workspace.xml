@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Spring security turned off">
-      <change afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/BidListService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/services/BidListService.class" afterDir="false" />
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="/bidList/list mapping added">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/spring-boot-skeleton.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/spring-boot-skeleton.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/BidList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/BidList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/CurvePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/CurvePoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Rating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/RuleName.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/RuleName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Trade.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Trade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/BidListRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/BidListRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/controllers/BidListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/controllers/BidListController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/BidList.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/BidList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/CurvePoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/CurvePoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/Rating.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/RuleName.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/RuleName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/Trade.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/Trade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/domain/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/repositories/BidListRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/com/nnk/springboot/repositories/BidListRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/templates/bidList/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/target/classes/templates/bidList/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +81,8 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
+      <command value="mvn test" />
+      <command value="mvn site" />
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -160,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648726294091</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="/bidList/list mapping added">
+      <created>1649063690582</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649063690582</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +177,7 @@
     <MESSAGE value="application can boot" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="gitignore modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore modified" />
+    <MESSAGE value="/bidList/list mapping added" />
+    <option name="LAST_COMMIT_MESSAGE" value="/bidList/list mapping added" />
   </component>
 </project>

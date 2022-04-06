@@ -51,7 +51,7 @@ public class BidListController {
 
     /**
      * Post /bidList/validate
-     * @param bid is the object that need to be validate
+     * @param bid is the object that need to be validated
      * @param result is used to check if there is an error
      * @param model is used for the html template
      * @return bidList/list if no error or bidList/add if error
@@ -81,10 +81,24 @@ public class BidListController {
         return "bidList/update";
     }
 
+    /**
+     * Post /bidList/update/{id}
+     * @param id is the id of the bid to update
+     * @param bidList is the object that need to be validated
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return bidList/list if no error or bidList/update if error
+     */
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
                             BindingResult result, Model model) {
-        // TODO: check required fields, if valid call service to update Bid and return list Bid
+        log.info("POST /bidList/update/{}",id);
+        if (result.hasErrors()){
+            log.error("POST /bidList/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            return "bidList/update";
+        }
+        bidListService.updateBidListById(id, bidList);
+        model.addAttribute("bidListList",bidListService.getBidListList());
         return "redirect:/bidList/list";
     }
 

@@ -87,7 +87,7 @@ public class BidListController {
      * @param bidList is the object that need to be validated
      * @param result is used to check if there is an error
      * @param model is used for the html template
-     * @return bidList/list if no error or bidList/update if error
+     * @return redirect:/bidList/list if no error or bidList/update if error
      */
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
@@ -102,9 +102,17 @@ public class BidListController {
         return "redirect:/bidList/list";
     }
 
+    /**
+     * Get /bidList/delete/{id}
+     * @param id is the id of the bid to delete
+     * @param model is used for the html template
+     * @return redirect:/bidList/list
+     */
     @GetMapping("/bidList/delete/{id}")
     public String deleteBid(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Bid by Id and delete the bid, return to Bid list
+        log.info("GET /bidList/delete/{}",id);
+        bidListService.deleteBidListById(id);
+        model.addAttribute("bidListList",bidListService.getBidListList());
         return "redirect:/bidList/list";
     }
 }

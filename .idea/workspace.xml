@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : get Bid by Id and to model then show to the form">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : check required fields, if valid call service to update Bid and return list Bid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/BidListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/BidListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/BidListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/BidListServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,6 +113,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BidListControllerTest.updateBid_Without_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Without_Bid_Quantity_Should_Return_Form" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BidListControllerTest.updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BidListControllerTest.updateBid_Without_Type_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Without_Type_Should_Return_Form" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BidListServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
@@ -126,54 +176,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListServiceTest.addBidList_Should_Work" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.BidListServiceTest" />
-      <option name="METHOD_NAME" value="addBidList_Should_Work" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BidListServiceTest.getBidListById_Should_Work" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.BidListServiceTest" />
-      <option name="METHOD_NAME" value="getBidListById_Should_Work" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BidListServiceTest.updateBidList_Should_Work" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.BidListServiceTest" />
-      <option name="METHOD_NAME" value="updateBidList_Should_Work" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="spring-boot-skeleton" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.nnk.springboot.Application" />
@@ -185,9 +187,9 @@
       <list>
         <item itemvalue="JUnit.BidListServiceTest" />
         <item itemvalue="JUnit.BidListControllerTest" />
-        <item itemvalue="JUnit.BidListServiceTest.updateBidList_Should_Work" />
-        <item itemvalue="JUnit.BidListServiceTest.getBidListById_Should_Work" />
-        <item itemvalue="JUnit.BidListServiceTest.addBidList_Should_Work" />
+        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Bid_Quantity_Should_Return_Form" />
+        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Type_Should_Return_Form" />
       </list>
     </recent_temporary>
   </component>
@@ -328,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649199992105</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="work done for TODO : check required fields, if valid call service to update Bid and return list Bid">
+      <created>1649233231310</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1649233231310</updated>
+    </task>
+    <task id="LOCAL-00020" summary="work done for TODO : check required fields, if valid call service to update Bid and return list Bid">
+      <created>1649233398925</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1649233398925</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +374,7 @@
     <MESSAGE value="work done for : TODO call service find all bids to show to the view" />
     <MESSAGE value="work done for TODO : check data valid and save to db, after saving return bid list" />
     <MESSAGE value="work done for TODO : get Bid by Id and to model then show to the form" />
-    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : get Bid by Id and to model then show to the form" />
+    <MESSAGE value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
+    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
   </component>
 </project>

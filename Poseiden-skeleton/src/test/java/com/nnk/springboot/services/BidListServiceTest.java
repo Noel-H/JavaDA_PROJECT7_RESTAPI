@@ -24,21 +24,21 @@ public class BidListServiceTest extends TestCase {
     private BidListService bidListService;
 
     @Test
-    public void getBidListList_Should_Work(){
+    public void getBidListList_Should_Get_All_Bid(){
         when(bidListRepository.findAll()).thenReturn(new ArrayList<>());
         bidListService.getBidListList();
         verify(bidListRepository,times(1)).findAll();
     }
 
     @Test
-    public void getBidListById_Should_Work(){
+    public void getBidListById_Should_Get_Bid(){
         when(bidListRepository.findById(1)).thenReturn(Optional.of(new BidList()));
         bidListService.getBidListById(1);
         verify(bidListRepository,times(1)).findById(1);
     }
 
     @Test
-    public void addBidList_Should_Work(){
+    public void addBidList_Should_Add_Bid(){
         BidList bidList = new BidList();
         when(bidListRepository.save(bidList)).thenReturn(new BidList());
         bidListService.addBidList(bidList);
@@ -46,7 +46,7 @@ public class BidListServiceTest extends TestCase {
     }
 
     @Test
-    public void updateBidList_Should_Work(){
+    public void updateBidList_Should_Update_Bid(){
         BidList bidListToUpdate = new BidList();
         bidListToUpdate.setBidListId(1);
 
@@ -61,5 +61,14 @@ public class BidListServiceTest extends TestCase {
         bidListService.updateBidListById(1,bidList);
 
         verify(bidListRepository,times(1)).save(expectedBidListSave);
+    }
+
+    @Test
+    public void deleteBidListById_Should_Delete_Bid(){
+        BidList bidListToDelete = new BidList();
+        bidListToDelete.setBidListId(1);
+        when(bidListRepository.findById(1)).thenReturn(Optional.of(bidListToDelete));
+        bidListService.deleteBidListById(1);
+        verify(bidListRepository,times(1)).delete(bidListToDelete);
     }
 }

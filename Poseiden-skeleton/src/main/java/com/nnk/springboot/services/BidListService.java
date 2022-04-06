@@ -59,4 +59,15 @@ public class BidListService {
         bidListToUpdate.setBidQuantity(bidList.getBidQuantity());
         return bidListRepository.save(bidListToUpdate);
     }
+
+    /**
+     * Delete a bid
+     * @param id is the id of the bid that need to be deleted
+     * @return the deleted bid
+     */
+    public BidList deleteBidListById(Integer id) {
+        BidList bidListToDelete = getBidListById(id);
+        bidListRepository.delete(bidListToDelete);
+        return bidListToDelete;
+    }
 }

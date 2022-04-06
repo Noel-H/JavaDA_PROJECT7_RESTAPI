@@ -53,7 +53,7 @@ public class BidListControllerTest extends TestCase {
         mockMvc.perform(post("/bidList/validate")
                         .param("account","test")
                         .param("type","testType")
-                        .param("bidQuantity","10.0" )
+                        .param("bidQuantity","10.0")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/list"));
@@ -63,7 +63,7 @@ public class BidListControllerTest extends TestCase {
     public void validate_Without_Account_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/bidList/validate")
                         .param("type","testType")
-                        .param("bidQuantity","10.0" )
+                        .param("bidQuantity","10.0")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/add"));
@@ -73,7 +73,7 @@ public class BidListControllerTest extends TestCase {
     public void validate_Without_Type_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/bidList/validate")
                         .param("account","test")
-                        .param("bidQuantity","10.0" )
+                        .param("bidQuantity","10.0")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/add"));
@@ -94,7 +94,7 @@ public class BidListControllerTest extends TestCase {
         mockMvc.perform(post("/bidList/validate")
                         .param("account","test")
                         .param("type","testType")
-                        .param("bidQuantity","test123" )
+                        .param("bidQuantity","test123")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/add"));
@@ -108,5 +108,69 @@ public class BidListControllerTest extends TestCase {
                 .andExpect(status().isOk())
                 .andExpect(view().name("bidList/update"));
         verify(bidListService,times(1)).getBidListById(1);
+    }
+
+    @Test
+    public void updateBid_Should_Return_Ok() throws Exception {
+        BidList bidList = new BidList("newTestAccount","newTestType",555.55);
+        when(bidListService.updateBidListById(1,bidList)).thenReturn(new BidList());
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("account","newTestAccount")
+                        .param("type","newTestType")
+                        .param("bidQuantity","555.55")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/bidList/list"));
+        verify(bidListService,times(1)).updateBidListById(1,bidList);
+    }
+
+    @Test
+    public void updateBid_Without_Account_Should_Return_Form() throws Exception {
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("type","newTestType")
+                        .param("bidQuantity","555.55")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"));
+    }
+
+    @Test
+    public void updateBid_Without_Type_Should_Return_Form() throws Exception {
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("account","newTestAccount")
+                        .param("bidQuantity","555.55")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"));
+    }
+
+    @Test
+    public void updateBid_Without_Bid_Quantity_Should_Return_Form() throws Exception {
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("account","newTestAccount")
+                        .param("type","newTestType")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"));
+    }
+
+    @Test
+    public void updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form() throws Exception {
+        mockMvc.perform(post("/bidList/update/1")
+                        .param("account","newTestAccount")
+                        .param("type","newTestType")
+                        .param("bidQuantity","test123")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/update"));
+    }
+
+    @Test
+    public void deleteBid_Should_Return_Ok() throws Exception {
+        when(bidListService.deleteBidListById(1)).thenReturn(new BidList());
+        mockMvc.perform(get("/bidList/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/bidList/list"));
+        verify(bidListService,times(1)).deleteBidListById(1);
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -111,6 +112,15 @@ public class BidListControllerTest extends TestCase {
     }
 
     @Test
+    public void showUpdateForm_Should_Return_BidListList_If_Id_Not_Found() throws Exception {
+        when(bidListService.getBidListById(1)).thenThrow(new EntityNotFoundException());
+        mockMvc.perform(get("/bidList/update/1"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("bidList/list"));
+        verify(bidListService,times(1)).getBidListById(1);
+    }
+
+    @Test
     public void updateBid_Should_Return_Ok() throws Exception {
         BidList bidList = new BidList("newTestAccount","newTestType",555.55);
         when(bidListService.updateBidListById(1,bidList)).thenReturn(new BidList());
@@ -168,6 +178,15 @@ public class BidListControllerTest extends TestCase {
     @Test
     public void deleteBid_Should_Return_Ok() throws Exception {
         when(bidListService.deleteBidListById(1)).thenReturn(new BidList());
+        mockMvc.perform(get("/bidList/delete/1"))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(view().name("redirect:/bidList/list"));
+        verify(bidListService,times(1)).deleteBidListById(1);
+    }
+
+    @Test
+    public void deleteBid_Should_Return_BidListList_If_Id_Not_Found() throws Exception {
+        when(bidListService.deleteBidListById(1)).thenThrow(new EntityNotFoundException());
         mockMvc.perform(get("/bidList/delete/1"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/bidList/list"));

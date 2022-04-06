@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 /**
@@ -72,12 +73,20 @@ public class BidListController {
      * Get /bidList/update/{id}
      * @param id is the id of the bid
      * @param model is used for the html template
-     * @return bidList/update
+     * @return bidList/update or bidList/list if the id is not found
      */
     @GetMapping("/bidList/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
         log.info("GET /bidList/update/{}",id);
-        model.addAttribute("bidList", bidListService.getBidListById(id));
+        BidList bidList;
+        try{
+            bidList = bidListService.getBidListById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /bidList/update/{} : ERROR - {}",id, e.getMessage());
+            model.addAttribute("bidListList",bidListService.getBidListList());
+            return "bidList/list";
+        }
+        model.addAttribute("bidList", bidList);
         return "bidList/update";
     }
 
@@ -111,7 +120,11 @@ public class BidListController {
     @GetMapping("/bidList/delete/{id}")
     public String deleteBid(@PathVariable("id") Integer id, Model model) {
         log.info("GET /bidList/delete/{}",id);
-        bidListService.deleteBidListById(id);
+        try{
+            bidListService.deleteBidListById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /bidList/delete/{} : ERROR - {}",id, e.getMessage());
+        }
         model.addAttribute("bidListList",bidListService.getBidListList());
         return "redirect:/bidList/list";
     }

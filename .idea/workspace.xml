@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : check required fields, if valid call service to update Bid and return list Bid">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : Find Bid by Id and delete the bid, return to Bid list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/BidListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/BidListService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/BidListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/BidListServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.updateBid_Without_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.deleteBid_Should_Return_BidListList_If_Id_Not_Found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -123,7 +121,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Without_Bid_Quantity_Should_Return_Form" />
+      <option name="METHOD_NAME" value="deleteBid_Should_Return_BidListList_If_Id_Not_Found" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BidListControllerTest.showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="METHOD_NAME" value="showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,22 +154,6 @@
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
       <option name="METHOD_NAME" value="updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BidListControllerTest.updateBid_Without_Type_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Without_Type_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BidListControllerTest.showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" />
+        <item itemvalue="JUnit.BidListControllerTest.deleteBid_Should_Return_BidListList_If_Id_Not_Found" />
         <item itemvalue="JUnit.BidListServiceTest" />
         <item itemvalue="JUnit.BidListControllerTest" />
         <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
-        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Bid_Quantity_Should_Return_Form" />
-        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Type_Should_Return_Form" />
       </list>
     </recent_temporary>
   </component>
@@ -344,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649233398925</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="work done for TODO : Find Bid by Id and delete the bid, return to Bid list">
+      <created>1649238656372</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1649238656372</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,6 +380,7 @@
     <MESSAGE value="work done for TODO : check data valid and save to db, after saving return bid list" />
     <MESSAGE value="work done for TODO : get Bid by Id and to model then show to the form" />
     <MESSAGE value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
-    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
+    <MESSAGE value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
+    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
   </component>
 </project>

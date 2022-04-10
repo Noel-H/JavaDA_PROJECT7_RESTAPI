@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="work done for TODO : Find Bid by Id and delete the bid, return to Bid list">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Try catch and test added to handle some EntityNotFoundException + showSQL put at false">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat_i" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_31_03_2022_13_23_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_31_03_2022_13_23__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/BidListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/CurveController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/CurveController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/BidList.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/BidList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/CurvePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/CurvePoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/CurvePointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/CurvePointRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit3 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,6 +98,10 @@
       <recent name="com.nnk.springboot.services" />
       <recent name="com.nnk.springboot.controllers" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.nnk.springboot.services" />
+      <recent name="com.nnk.springboot.controllers" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -95,7 +110,7 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.CurvePointControllerTest">
     <configuration name="BidListControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
@@ -111,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.deleteBid_Should_Return_BidListList_If_Id_Not_Found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BidListControllerTest.updateBid_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -121,13 +136,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="deleteBid_Should_Return_BidListList_If_Id_Not_Found" />
+      <option name="METHOD_NAME" value="updateBid_Should_Return_Ok" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CurvePointControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -136,14 +151,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.CurvePointControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CurvePointControllerTest.updateBid_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -152,14 +166,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.CurvePointControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Should_Return_Ok" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CurvePointServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -168,7 +182,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.BidListServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.CurvePointServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -183,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BidListControllerTest.showUpdateForm_Should_Return_BidListList_If_Id_Not_Found" />
-        <item itemvalue="JUnit.BidListControllerTest.deleteBid_Should_Return_BidListList_If_Id_Not_Found" />
-        <item itemvalue="JUnit.BidListServiceTest" />
+        <item itemvalue="JUnit.CurvePointControllerTest" />
         <item itemvalue="JUnit.BidListControllerTest" />
-        <item itemvalue="JUnit.BidListControllerTest.updateBid_Without_Double_Type_In_Bid_Quantity_Should_Return_Form" />
+        <item itemvalue="JUnit.CurvePointServiceTest" />
+        <item itemvalue="JUnit.BidListControllerTest.updateBid_Should_Return_Ok" />
+        <item itemvalue="JUnit.CurvePointControllerTest.updateBid_Should_Return_Ok" />
       </list>
     </recent_temporary>
   </component>
@@ -201,6 +215,8 @@
       <updated>1648648394033</updated>
       <workItem from="1648648395387" duration="7329000" />
       <workItem from="1648724996190" duration="4134000" />
+      <workItem from="1649432390566" duration="709000" />
+      <workItem from="1649595526912" duration="15350000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1648648757305</created>
@@ -382,5 +398,16 @@
     <MESSAGE value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
     <MESSAGE value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
     <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/CurveController.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

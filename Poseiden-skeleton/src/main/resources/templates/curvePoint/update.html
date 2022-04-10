@@ -14,9 +14,23 @@
 
 	<div class="row">
 		<form action="#" th:action="@{/curvePoint/update/{id}(id=${curvePoint.id})}" th:object="${curvePoint}" method="post" class="form-horizontal" style="width: 100%">
-			<!--
-			TODO: Create a form to edit the values of CurvePoint, there are 2 buttons: Update data and Cancel to the Curve Point
-			 -->
+			<div class="form-group">
+				<label for="curvePointId">curvePointId</label>
+				<input type="text" class="form-control" id="curvePointId" aria-describedby="curvePointIdHelp" th:placeholder="${curvePoint.getCurveId()}" th:field="*{curveId}">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}"></div>
+			</div>
+			<div class="form-group">
+				<label for="term">Term</label>
+				<input type="text" class="form-control" id="term" aria-describedby="termHelp" th:placeholder="${curvePoint.getTerm()}" th:field="*{term}">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('term')}" th:errors="*{term}"></div>
+			</div>
+			<div class="form-group">
+				<label for="value">Value</label>
+				<input type="text" class="form-control" id="value" aria-describedby="valueHelp" th:placeholder="${curvePoint.getValue()}" th:field="*{value}">
+				<div class="alert alert-warning" th:if="${#fields.hasErrors('value')}" th:errors="*{value}"></div>
+			</div>
+			<button type="submit" class="btn btn-primary">Update</button>
+			<a href="/curvePoint/list"><button type="button" class="btn btn-danger">Cancel</button></a>
 		</form>
 	</div>
 

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Trade Repository and Service done">
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/TradeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/TradeController.java" afterDir="false" />
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Trade Controller done">
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649674395051</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Trade Controller done">
+      <created>1649674835931</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1649674835931</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,6 +414,7 @@
     <MESSAGE value="Rating entity and RatingRepository done and RatingService added" />
     <MESSAGE value="Trade Entity done" />
     <MESSAGE value="Trade Repository and Service done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trade Repository and Service done" />
+    <MESSAGE value="Trade Controller done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trade Controller done" />
   </component>
 </project>

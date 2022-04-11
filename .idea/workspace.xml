@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="RuleName Service and Repository done">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="RuleName Controller and html done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/RuleNameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/RuleNameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,8 +85,8 @@
       <recent name="com.nnk.springboot.controllers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.nnk.springboot.services" />
       <recent name="com.nnk.springboot.controllers" />
+      <recent name="com.nnk.springboot.services" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -100,8 +96,8 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="RatingControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.com.nnk.springboot.services in spring-boot-skeleton">
+    <configuration name="RuleNameControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +106,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RuleNameControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TradeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleNameControllerTest.validate_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -125,13 +121,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.TradeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RuleNameControllerTest" />
+      <option name="METHOD_NAME" value="validate_Should_Return_Ok" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TradeServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RuleNameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -140,7 +137,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.TradeServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.RuleNameServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,9 +182,9 @@
       <list>
         <item itemvalue="JUnit.com.nnk.springboot.services in spring-boot-skeleton" />
         <item itemvalue="JUnit.com.nnk.springboot.controllers in spring-boot-skeleton" />
-        <item itemvalue="JUnit.TradeControllerTest" />
-        <item itemvalue="JUnit.TradeServiceTest" />
-        <item itemvalue="JUnit.RatingControllerTest" />
+        <item itemvalue="JUnit.RuleNameControllerTest" />
+        <item itemvalue="JUnit.RuleNameControllerTest.validate_Should_Return_Ok" />
+        <item itemvalue="JUnit.RuleNameServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -414,7 +411,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649679866928</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="RuleName Controller and html done">
+      <created>1649685297047</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1649685297047</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,6 +457,7 @@
     <MESSAGE value="Trade html done" />
     <MESSAGE value="RuleName Entity done" />
     <MESSAGE value="RuleName Service and Repository done" />
-    <option name="LAST_COMMIT_MESSAGE" value="RuleName Service and Repository done" />
+    <MESSAGE value="RuleName Controller and html done" />
+    <option name="LAST_COMMIT_MESSAGE" value="RuleName Controller and html done" />
   </component>
 </project>

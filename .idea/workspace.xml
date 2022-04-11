@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Trade Controller done">
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/update.html" afterDir="false" />
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Trade html done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +85,8 @@
       <recent name="com.nnk.springboot.controllers" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.nnk.springboot.services" />
       <recent name="com.nnk.springboot.controllers" />
+      <recent name="com.nnk.springboot.services" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -98,7 +96,7 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.com.nnk.springboot.services in spring-boot-skeleton">
     <configuration name="RatingControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
@@ -114,7 +112,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RatingControllerTest.updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TradeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -123,25 +121,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.TradeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RatingControllerTest.updateBid_Without_OrderNumber_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TradeServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="PATTERN" value="com.nnk.springboot.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Without_OrderNumber_Should_Return_Form" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.TradeServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,9 +181,9 @@
       <list>
         <item itemvalue="JUnit.com.nnk.springboot.services in spring-boot-skeleton" />
         <item itemvalue="JUnit.com.nnk.springboot.controllers in spring-boot-skeleton" />
+        <item itemvalue="JUnit.TradeControllerTest" />
+        <item itemvalue="JUnit.TradeServiceTest" />
         <item itemvalue="JUnit.RatingControllerTest" />
-        <item itemvalue="JUnit.RatingControllerTest.updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" />
-        <item itemvalue="JUnit.RatingControllerTest.updateBid_Without_OrderNumber_Should_Return_Form" />
       </list>
     </recent_temporary>
   </component>
@@ -379,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649674835931</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Trade html done">
+      <created>1649675749385</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1649675749385</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,6 +418,7 @@
     <MESSAGE value="Trade Entity done" />
     <MESSAGE value="Trade Repository and Service done" />
     <MESSAGE value="Trade Controller done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trade Controller done" />
+    <MESSAGE value="Trade html done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trade html done" />
   </component>
 </project>

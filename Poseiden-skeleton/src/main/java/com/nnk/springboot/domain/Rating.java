@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * Rating domain
+ * Rating Entity
  */
 @Entity
 @Data

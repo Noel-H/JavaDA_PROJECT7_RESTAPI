@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 /**
- * CurvePoint Domain
+ * CurvePoint Entity
  */
 @Entity
 @Data

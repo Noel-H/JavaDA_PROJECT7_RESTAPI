@@ -7,7 +7,7 @@ import javax.validation.constraints.*;
 import java.sql.Timestamp;
 
 /**
- * BidList Domain
+ * BidList Entity
  */
 @Entity
 @Data

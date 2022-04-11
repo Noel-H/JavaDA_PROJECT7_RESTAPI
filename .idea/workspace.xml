@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Try catch and test added to handle some EntityNotFoundException + showSQL put at false">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Rating entity and RatingRepository done and RatingService added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/Rating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/RatingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/RatingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/RatingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/RatingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/RatingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/RatingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +101,8 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CurvePointControllerTest">
-    <configuration name="BidListControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="RatingControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -108,13 +111,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BidListControllerTest.updateBid_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RatingControllerTest.updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -123,14 +126,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.BidListControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Should_Return_Ok" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurvePointControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RatingControllerTest.updateBid_Without_OrderNumber_Should_Return_Form" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -139,29 +142,28 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.CurvePointControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CurvePointControllerTest.updateBid_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.CurvePointControllerTest" />
-      <option name="METHOD_NAME" value="updateBid_Should_Return_Ok" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RatingControllerTest" />
+      <option name="METHOD_NAME" value="updateBid_Without_OrderNumber_Should_Return_Form" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurvePointServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.nnk.springboot.controllers in spring-boot-skeleton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.nnk.springboot.services in spring-boot-skeleton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -170,8 +172,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.CurvePointServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CurvePointControllerTest" />
-        <item itemvalue="JUnit.BidListControllerTest" />
-        <item itemvalue="JUnit.CurvePointServiceTest" />
-        <item itemvalue="JUnit.BidListControllerTest.updateBid_Should_Return_Ok" />
-        <item itemvalue="JUnit.CurvePointControllerTest.updateBid_Should_Return_Ok" />
+        <item itemvalue="JUnit.com.nnk.springboot.services in spring-boot-skeleton" />
+        <item itemvalue="JUnit.com.nnk.springboot.controllers in spring-boot-skeleton" />
+        <item itemvalue="JUnit.RatingControllerTest" />
+        <item itemvalue="JUnit.RatingControllerTest.updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form" />
+        <item itemvalue="JUnit.RatingControllerTest.updateBid_Without_OrderNumber_Should_Return_Form" />
       </list>
     </recent_temporary>
   </component>
@@ -353,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649238656372</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Rating entity and RatingRepository done and RatingService added">
+      <created>1649631732771</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1649631732771</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,17 +393,7 @@
     <MESSAGE value="work done for TODO : get Bid by Id and to model then show to the form" />
     <MESSAGE value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
     <MESSAGE value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
-    <option name="LAST_COMMIT_MESSAGE" value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/CurveController.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Rating entity and RatingRepository done and RatingService added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rating entity and RatingRepository done and RatingService added" />
   </component>
 </project>

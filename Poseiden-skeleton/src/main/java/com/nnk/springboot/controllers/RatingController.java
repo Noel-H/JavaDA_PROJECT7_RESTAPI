@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
 /**
@@ -24,40 +25,107 @@ public class RatingController {
     @Autowired
     private RatingService ratingService;
 
+    /**
+     * Get /rating/list
+     * @param model is used for the html template
+     * @return rating/list.html
+     */
     @RequestMapping("/rating/list")
-    public String home(Model model)
-    {
-        // TODO: find all Rating, add to model
+    public String home(Model model) {
+        log.info("GET /rating/list");
+        model.addAttribute("ratingList",ratingService.getRatingList());
         return "rating/list";
     }
 
+    /**
+     * Get /rating/add
+     * @param rating is used as attribute for the html template
+     * @param model is used for the html template
+     * @return rating/add
+     */
     @GetMapping("/rating/add")
-    public String addRatingForm(Rating rating) {
+    public String addBidForm(Rating rating, Model model) {
+        log.info("GET /rating/add");
+        model.addAttribute("rating", rating);
         return "rating/add";
     }
 
+    /**
+     * Post /rating/validate
+     * @param rating is the object that need to be validated
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return rating/list if no error or rating/add if error
+     */
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
-        // TODO: check data valid and save to db, after saving return Rating list
-        return "rating/add";
+        log.info("POST /rating/validate");
+        if (result.hasErrors()){
+            log.error("POST /rating/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            return "rating/add";
+        }
+        ratingService.addRating(rating);
+        model.addAttribute("ratingList",ratingService.getRatingList());
+        return "rating/list";
     }
 
+    /**
+     * Get /rating/update/{id}
+     * @param id is the id of the rating
+     * @param model is used for the html template
+     * @return rating/update or rating/list if the id is not found
+     */
     @GetMapping("/rating/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get Rating by Id and to model then show to the form
+        log.info("GET /rating/update/{}",id);
+        Rating rating;
+        try{
+            rating = ratingService.getRatingById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /rating/update/{} : ERROR - {}",id, e.getMessage());
+            model.addAttribute("ratingList",ratingService.getRatingList());
+            return "rating/list";
+        }
+        model.addAttribute("rating", rating);
         return "rating/update";
     }
 
+    /**
+     * Post /rating/update/{id}
+     * @param id is the id of the rating to update
+     * @param rating is the object that need to be validated
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return redirect:/rating/list if no error or rating/update if error
+     */
     @PostMapping("/rating/update/{id}")
-    public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
-                             BindingResult result, Model model) {
-        // TODO: check required fields, if valid call service to update Rating and return Rating list
+    public String updateBid(@PathVariable("id") Integer id, @Valid Rating rating,
+                            BindingResult result, Model model) {
+        log.info("POST /rating/update/{}",id);
+        if (result.hasErrors()){
+            log.error("POST /rating/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            return "rating/update";
+        }
+        ratingService.updateRatingById(id, rating);
+        model.addAttribute("ratingList",ratingService.getRatingList());
         return "redirect:/rating/list";
     }
 
+    /**
+     * Get /rating/delete/{id}
+     * @param id is the id of the rating to delete
+     * @param model is used for the html template
+     * @return redirect:/rating/list
+     */
     @GetMapping("/rating/delete/{id}")
-    public String deleteRating(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Rating by Id and delete the Rating, return to Rating list
+    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+        log.info("GET /rating/delete/{}",id);
+        try{
+            ratingService.deleteRatingById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /rating/delete/{} : ERROR - {}",id, e.getMessage());
+        }
+        model.addAttribute("ratingList",ratingService.getRatingList());
         return "redirect:/rating/list";
     }
 }

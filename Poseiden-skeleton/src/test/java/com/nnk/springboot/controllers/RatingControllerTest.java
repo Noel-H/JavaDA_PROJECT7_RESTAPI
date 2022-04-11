@@ -41,7 +41,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void addBidForm_Should_Return_Ok() throws Exception {
+    public void addRatingForm_Should_Return_Ok() throws Exception {
         mockMvc.perform(get("/rating/add"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("rating/add"));
@@ -137,7 +137,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Should_Return_Ok() throws Exception {
+    public void updateRating_Should_Return_Ok() throws Exception {
         Rating rating = new Rating("newTest01","newTest02","newTest03",1111);
         rating.setId(1);
         when(ratingService.updateRatingById(1,rating)).thenReturn(new Rating());
@@ -153,7 +153,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_MoodysRating_Should_Return_Form() throws Exception {
+    public void updateRating_Without_MoodysRating_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/rating/update/1")
                         .param("sandPRating","newTest02")
                         .param("fitchRating","newTest03")
@@ -164,7 +164,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_SandPRating_Should_Return_Form() throws Exception {
+    public void updateRating_Without_SandPRating_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/rating/update/1")
                         .param("moodysRating","newTest01")
                         .param("fitchRating","newTest03")
@@ -175,7 +175,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_FitchRating_Should_Return_Form() throws Exception {
+    public void updateRating_Without_FitchRating_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/rating/update/1")
                         .param("moodysRating","newTest01")
                         .param("sandPRating","newTest02")
@@ -186,7 +186,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_OrderNumber_Should_Return_Form() throws Exception {
+    public void updateRating_Without_OrderNumber_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/rating/update/1")
                         .param("moodysRating","newTest01")
                         .param("sandPRating","newTest02")
@@ -197,7 +197,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_Int_Type_In_OrderNumber_Should_Return_Form() throws Exception {
+    public void updateRating_Without_Int_Type_In_OrderNumber_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/rating/update/1")
                         .param("moodysRating","newTest01")
                         .param("sandPRating","newTest02")
@@ -209,7 +209,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void deleteBid_Should_Return_Ok() throws Exception {
+    public void deleteRating_Should_Return_Ok() throws Exception {
         when(ratingService.deleteRatingById(1)).thenReturn(new Rating());
         mockMvc.perform(get("/rating/delete/1"))
                 .andExpect(status().is3xxRedirection())
@@ -218,7 +218,7 @@ public class RatingControllerTest extends TestCase {
     }
 
     @Test
-    public void deleteBid_Should_Return_RatingList_If_Id_Not_Found() throws Exception {
+    public void deleteRating_Should_Return_RatingList_If_Id_Not_Found() throws Exception {
         when(ratingService.deleteRatingById(1)).thenThrow(new EntityNotFoundException());
         mockMvc.perform(get("/rating/delete/1"))
                 .andExpect(status().is3xxRedirection())

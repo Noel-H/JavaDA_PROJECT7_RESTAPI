@@ -39,14 +39,14 @@ public class CurveController {
 
     /**
      * Get /curvePoint/add
-     * @param bid is used as attribute for the html template
+     * @param curvePoint is used as attribute for the html template
      * @param model is used for the html template
      * @return curvePoint/add.html
      */
     @GetMapping("/curvePoint/add")
-    public String addBidForm(CurvePoint bid, Model model) {
+    public String addCurvePointForm(CurvePoint curvePoint, Model model) {
         log.info("GET /curvePoint/add");
-        model.addAttribute("curvePoint", bid);
+        model.addAttribute("curvePoint", curvePoint);
         return "curvePoint/add";
     }
 
@@ -99,7 +99,7 @@ public class CurveController {
      * @return redirect:/curvePoint/list if no error or curvePoint/update if error
      */
     @PostMapping("/curvePoint/update/{id}")
-    public String updateBid(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
+    public String updateCurvePoint(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
                              BindingResult result, Model model) {
         log.info("POST /curvePoint/update/{}",id);
         if (result.hasErrors()){
@@ -113,12 +113,12 @@ public class CurveController {
 
     /**
      * Get /curvePoint/delete/{id}
-     * @param id is the id of the bid to delete
+     * @param id is the id of the curvePoint to delete
      * @param model is used for the html template
      * @return redirect:/curvePoint/list
      */
     @GetMapping("/curvePoint/delete/{id}")
-    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+    public String deleteCurvePoint(@PathVariable("id") Integer id, Model model) {
         // TODO: Find Curve by Id and delete the Curve, return to Curve list
         log.info("GET /curvePoint/delete/{}",id);
         try{

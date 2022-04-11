@@ -41,7 +41,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void addBidForm_Should_Return_Ok() throws Exception {
+    public void addCurvePointForm_Should_Return_Ok() throws Exception {
         mockMvc.perform(get("/curvePoint/add"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("curvePoint/add"));
@@ -143,7 +143,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Should_Return_Ok() throws Exception {
+    public void updateCurvePoint_Should_Return_Ok() throws Exception {
         CurvePoint curvePoint = new CurvePoint(1,1.1,111.11);
         curvePoint.setId(1);
         when(curvePointService.updateCurvePointById(1,curvePoint)).thenReturn(new CurvePoint());
@@ -158,7 +158,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_CurveId_Should_Return_Form() throws Exception {
+    public void updateCurvePoint_Without_CurveId_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/curvePoint/update/1")
                         .param("term","1.1")
                         .param("value","111.11")
@@ -168,7 +168,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_Term_Should_Return_Form() throws Exception {
+    public void updateCurvePoint_Without_Term_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/curvePoint/update/1")
                         .param("curveId","1")
                         .param("value","111.11")
@@ -178,7 +178,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_Value_Should_Return_Form() throws Exception {
+    public void updateCurvePoint_Without_Value_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/curvePoint/update/1")
                         .param("curveId","1")
                         .param("term","1.1")
@@ -188,7 +188,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void updateBid_Without_Double_Type_In_Value_Should_Return_Form() throws Exception {
+    public void updateCurvePoint_Without_Double_Type_In_Value_Should_Return_Form() throws Exception {
         mockMvc.perform(post("/curvePoint/update/1")
                         .param("curveId","1")
                         .param("term","1.1")
@@ -199,7 +199,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void deleteBid_Should_Return_Ok() throws Exception {
+    public void deleteCurvePoint_Should_Return_Ok() throws Exception {
         when(curvePointService.deleteCurvePointById(1)).thenReturn(new CurvePoint());
         mockMvc.perform(get("/curvePoint/delete/1"))
                 .andExpect(status().is3xxRedirection())
@@ -208,7 +208,7 @@ public class CurvePointControllerTest extends TestCase {
     }
 
     @Test
-    public void deleteBid_Should_Return_CurvePointList_If_Id_Not_Found() throws Exception {
+    public void deleteCurvePoint_Should_Return_CurvePointList_If_Id_Not_Found() throws Exception {
         when(curvePointService.deleteCurvePointById(1)).thenThrow(new EntityNotFoundException());
         mockMvc.perform(get("/curvePoint/delete/1"))
                 .andExpect(status().is3xxRedirection())

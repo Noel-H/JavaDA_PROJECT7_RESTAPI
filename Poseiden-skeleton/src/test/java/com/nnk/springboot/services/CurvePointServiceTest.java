@@ -24,21 +24,21 @@ public class CurvePointServiceTest extends TestCase {
     private CurvePointService curvePointService;
 
     @Test
-    public void getCurvePointList_Should_Get_All_Bid(){
+    public void getCurvePointList_Should_Get_All_CurvePoint(){
         when(curvePointRepository.findAll()).thenReturn(new ArrayList<>());
         curvePointService.getCurvePointList();
         verify(curvePointRepository,times(1)).findAll();
     }
 
     @Test
-    public void getCurvePointById_Should_Get_Bid(){
+    public void getCurvePointById_Should_Get_CurvePoint(){
         when(curvePointRepository.findById(1)).thenReturn(Optional.of(new CurvePoint()));
         curvePointService.getCurvePointById(1);
         verify(curvePointRepository,times(1)).findById(1);
     }
 
     @Test
-    public void addCurvePoint_Should_Add_Bid(){
+    public void addCurvePoint_Should_Add_CurvePoint(){
         CurvePoint curvePoint = new CurvePoint();
         when(curvePointRepository.save(curvePoint)).thenReturn(new CurvePoint());
         curvePointService.addCurvePoint(curvePoint);
@@ -46,7 +46,7 @@ public class CurvePointServiceTest extends TestCase {
     }
 
     @Test
-    public void updateCurvePoint_Should_Update_Bid(){
+    public void updateCurvePoint_Should_Update_CurvePoint(){
         CurvePoint curvePointToUpdate = new CurvePoint();
         curvePointToUpdate.setId(1);
 
@@ -64,7 +64,7 @@ public class CurvePointServiceTest extends TestCase {
     }
 
     @Test
-    public void deleteCurvePointById_Should_Delete_Bid(){
+    public void deleteCurvePointById_Should_Delete_CurvePoint(){
         CurvePoint curvePointToDelete = new CurvePoint();
         curvePointToDelete.setId(1);
         when(curvePointRepository.findById(1)).thenReturn(Optional.of(curvePointToDelete));

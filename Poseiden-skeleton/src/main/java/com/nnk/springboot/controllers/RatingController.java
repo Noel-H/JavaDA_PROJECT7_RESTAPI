@@ -44,7 +44,7 @@ public class RatingController {
      * @return rating/add
      */
     @GetMapping("/rating/add")
-    public String addBidForm(Rating rating, Model model) {
+    public String addRatingForm(Rating rating, Model model) {
         log.info("GET /rating/add");
         model.addAttribute("rating", rating);
         return "rating/add";
@@ -99,7 +99,7 @@ public class RatingController {
      * @return redirect:/rating/list if no error or rating/update if error
      */
     @PostMapping("/rating/update/{id}")
-    public String updateBid(@PathVariable("id") Integer id, @Valid Rating rating,
+    public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
                             BindingResult result, Model model) {
         log.info("POST /rating/update/{}",id);
         if (result.hasErrors()){
@@ -118,7 +118,7 @@ public class RatingController {
      * @return redirect:/rating/list
      */
     @GetMapping("/rating/delete/{id}")
-    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+    public String deleteRating(@PathVariable("id") Integer id, Model model) {
         log.info("GET /rating/delete/{}",id);
         try{
             ratingService.deleteRatingById(id);

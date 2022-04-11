@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,6 +34,13 @@ public class RatingServiceTest extends TestCase {
     @Test
     public void getRatingById_Should_Get_Rating(){
         when(ratingRepository.findById(1)).thenReturn(Optional.of(new Rating()));
+        ratingService.getRatingById(1);
+        verify(ratingRepository,times(1)).findById(1);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getRatingById_Should_Throw_Exception(){
+        when(ratingRepository.findById(1)).thenReturn(Optional.empty());
         ratingService.getRatingById(1);
         verify(ratingRepository,times(1)).findById(1);
     }

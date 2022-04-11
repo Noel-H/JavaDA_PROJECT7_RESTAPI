@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,6 +34,13 @@ public class CurvePointServiceTest extends TestCase {
     @Test
     public void getCurvePointById_Should_Get_CurvePoint(){
         when(curvePointRepository.findById(1)).thenReturn(Optional.of(new CurvePoint()));
+        curvePointService.getCurvePointById(1);
+        verify(curvePointRepository,times(1)).findById(1);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getCurvePointById_Should_Get_Throw_Exception(){
+        when(curvePointRepository.findById(1)).thenReturn(Optional.empty());
         curvePointService.getCurvePointById(1);
         verify(curvePointRepository,times(1)).findById(1);
     }

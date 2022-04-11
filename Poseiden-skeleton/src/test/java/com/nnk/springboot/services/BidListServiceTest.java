@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,6 +34,13 @@ public class BidListServiceTest extends TestCase {
     @Test
     public void getBidListById_Should_Get_Bid(){
         when(bidListRepository.findById(1)).thenReturn(Optional.of(new BidList()));
+        bidListService.getBidListById(1);
+        verify(bidListRepository,times(1)).findById(1);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getBidListById_Should_Throw_Exception(){
+        when(bidListRepository.findById(1)).thenReturn(Optional.empty());
         bidListService.getBidListById(1);
         verify(bidListRepository,times(1)).findById(1);
     }

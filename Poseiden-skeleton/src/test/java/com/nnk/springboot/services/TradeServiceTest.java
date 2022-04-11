@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,6 +34,13 @@ public class TradeServiceTest extends TestCase {
     @Test
     public void getTradeById_Should_Get_Trade(){
         when(tradeRepository.findById(1)).thenReturn(Optional.of(new Trade()));
+        tradeService.getTradeById(1);
+        verify(tradeRepository,times(1)).findById(1);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getTradeById_Should_Throw_Exception(){
+        when(tradeRepository.findById(1)).thenReturn(Optional.empty());
         tradeService.getTradeById(1);
         verify(tradeRepository,times(1)).findById(1);
     }

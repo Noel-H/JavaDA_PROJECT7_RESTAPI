@@ -9,6 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -33,6 +34,13 @@ public class RuleNameServiceTest extends TestCase {
     @Test
     public void getRuleNameById_Should_Get_RuleName(){
         when(ruleNameRepository.findById(1)).thenReturn(Optional.of(new RuleName()));
+        ruleNameService.getRuleNameById(1);
+        verify(ruleNameRepository,times(1)).findById(1);
+    }
+
+    @Test(expected = EntityNotFoundException.class)
+    public void getRuleNameById_Should_Throw_Exception(){
+        when(ruleNameRepository.findById(1)).thenReturn(Optional.empty());
         ruleNameService.getRuleNameById(1);
         verify(ruleNameRepository,times(1)).findById(1);
     }

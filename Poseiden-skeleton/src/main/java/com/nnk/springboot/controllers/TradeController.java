@@ -1,6 +1,9 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Trade;
+import com.nnk.springboot.services.TradeService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,46 +12,120 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
+/**
+ * Trade Controller
+ */
+@Slf4j
 @Controller
 public class TradeController {
-    // TODO: Inject Trade service
 
+    @Autowired
+    private TradeService tradeService;
+
+    /**
+     * Get /trade/list
+     * @param model is used for the html template
+     * @return trade/list.html
+     */
     @RequestMapping("/trade/list")
-    public String home(Model model)
-    {
-        // TODO: find all Trade, add to model
+    public String home(Model model) {
+        log.info("GET /trade/list");
+        model.addAttribute("tradeList",tradeService.getTradeList());
         return "trade/list";
     }
 
+    /**
+     * Get /trade/add
+     * @param trade is used as attribute for the html template
+     * @param model is used for the html template
+     * @return trade/add
+     */
     @GetMapping("/trade/add")
-    public String addUser(Trade bid) {
+    public String addTradeForm(Trade trade, Model model) {
+        log.info("GET /trade/add");
+        model.addAttribute("trade", trade);
         return "trade/add";
     }
 
+    /**
+     * Post /trade/validate
+     * @param trade is the object that need to be validated
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return trade/list if no error or trade/add if error
+     */
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
-        // TODO: check data valid and save to db, after saving return Trade list
-        return "trade/add";
+        log.info("POST /trade/validate");
+        if (result.hasErrors()){
+            log.error("POST /trade/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            return "trade/add";
+        }
+        tradeService.addTrade(trade);
+        model.addAttribute("tradeList",tradeService.getTradeList());
+        return "trade/list";
     }
 
+    /**
+     * Get /trade/update/{id}
+     * @param id is the id of the trade
+     * @param model is used for the html template
+     * @return trade/update or trade/list if the id is not found
+     */
     @GetMapping("/trade/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        // TODO: get Trade by Id and to model then show to the form
+        log.info("GET /trade/update/{}",id);
+        Trade trade;
+        try{
+            trade = tradeService.getTradeById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /trade/update/{} : ERROR - {}",id, e.getMessage());
+            model.addAttribute("tradeList",tradeService.getTradeList());
+            return "trade/list";
+        }
+        model.addAttribute("trade", trade);
         return "trade/update";
     }
 
+    /**
+     * Post /trade/update/{id}
+     * @param id is the id of the trade to update
+     * @param trade is the object that need to be validated
+     * @param result is used to check if there is an error
+     * @param model is used for the html template
+     * @return redirect:/trade/list if no error or trade/update if error
+     */
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
-                             BindingResult result, Model model) {
-        // TODO: check required fields, if valid call service to update Trade and return Trade list
+                            BindingResult result, Model model) {
+        log.info("POST /trade/update/{}",id);
+        if (result.hasErrors()){
+            log.error("POST /trade/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            return "trade/update";
+        }
+        tradeService.updateTradeById(id, trade);
+        model.addAttribute("tradeList",tradeService.getTradeList());
         return "redirect:/trade/list";
     }
 
+    /**
+     * Get /trade/delete/{id}
+     * @param id is the id of the trade to delete
+     * @param model is used for the html template
+     * @return redirect:/trade/list
+     */
     @GetMapping("/trade/delete/{id}")
     public String deleteTrade(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Trade by Id and delete the Trade, return to Trade list
+        log.info("GET /trade/delete/{}",id);
+        try{
+            tradeService.deleteTradeById(id);
+        } catch (EntityNotFoundException e){
+            log.error("GET /trade/delete/{} : ERROR - {}",id, e.getMessage());
+        }
+        model.addAttribute("tradeList",tradeService.getTradeList());
         return "redirect:/trade/list";
     }
 }

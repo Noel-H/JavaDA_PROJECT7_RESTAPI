@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Rating entity and RatingRepository done and RatingService added" />
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Trade Entity done">
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/TradeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/repositories/TradeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/TradeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/services/TradeService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -354,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649631732771</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Trade Entity done">
+      <created>1649674040057</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1649674040057</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,6 +397,7 @@
     <MESSAGE value="work done for TODO : check required fields, if valid call service to update Bid and return list Bid" />
     <MESSAGE value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
     <MESSAGE value="Rating entity and RatingRepository done and RatingService added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rating entity and RatingRepository done and RatingService added" />
+    <MESSAGE value="Trade Entity done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trade Entity done" />
   </component>
 </project>

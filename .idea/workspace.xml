@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="RuleName Controller and html done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/HomeControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +98,39 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.nnk.springboot.services in spring-boot-skeleton">
+  <component name="RunManager" selected="JUnit.HomeControllerTest.adminHome_Should_Return_Ok">
+    <configuration name="HomeControllerTest.adminHome_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="adminHome_Should_Return_Ok" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HomeControllerTest.home_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.HomeControllerTest" />
+      <option name="METHOD_NAME" value="home_Should_Return_Ok" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RuleNameControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
@@ -107,37 +141,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RuleNameControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleNameControllerTest.validate_Should_Return_Ok" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.controllers.RuleNameControllerTest" />
-      <option name="METHOD_NAME" value="validate_Should_Return_Ok" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RuleNameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.RuleNameServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,11 +183,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.HomeControllerTest.adminHome_Should_Return_Ok" />
+        <item itemvalue="JUnit.HomeControllerTest.home_Should_Return_Ok" />
         <item itemvalue="JUnit.com.nnk.springboot.services in spring-boot-skeleton" />
         <item itemvalue="JUnit.com.nnk.springboot.controllers in spring-boot-skeleton" />
         <item itemvalue="JUnit.RuleNameControllerTest" />
-        <item itemvalue="JUnit.RuleNameControllerTest.validate_Should_Return_Ok" />
-        <item itemvalue="JUnit.RuleNameServiceTest" />
       </list>
     </recent_temporary>
   </component>

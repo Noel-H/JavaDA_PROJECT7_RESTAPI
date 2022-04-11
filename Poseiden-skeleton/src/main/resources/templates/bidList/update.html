@@ -15,6 +15,10 @@
 	<div class="row">
 		<form action="#" th:action="@{/bidList/update/{id}(id=${bidList.bidListId})}" th:object="${bidList}" method="post" class="form-horizontal" style="width: 100%">
 			<div class="form-group">
+				<label for="bidListId">BidListId</label>
+				<input type="text" class="form-control" id="bidListId" aria-describedby="bidListIdHelp" th:placeholder="${bidList.getBidListId()}" th:field="*{bidListId}" readonly>
+			</div>
+			<div class="form-group">
 				<label for="account">Account</label>
 				<input type="text" class="form-control" id="account" aria-describedby="accountHelp" th:placeholder="${bidList.getAccount()}" th:field="*{account}">
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('account')}" th:errors="*{account}"></div>

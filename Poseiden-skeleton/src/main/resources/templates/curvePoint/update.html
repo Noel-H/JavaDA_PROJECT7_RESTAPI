@@ -15,6 +15,10 @@
 	<div class="row">
 		<form action="#" th:action="@{/curvePoint/update/{id}(id=${curvePoint.id})}" th:object="${curvePoint}" method="post" class="form-horizontal" style="width: 100%">
 			<div class="form-group">
+				<label for="id">Id</label>
+				<input type="text" class="form-control" id="id" aria-describedby="idHelp" th:placeholder="${curvePoint.getId()}" th:field="*{id}" readonly>
+			</div>
+			<div class="form-group">
 				<label for="curvePointId">curvePointId</label>
 				<input type="text" class="form-control" id="curvePointId" aria-describedby="curvePointIdHelp" th:placeholder="${curvePoint.getCurveId()}" th:field="*{curveId}">
 				<div class="alert alert-warning" th:if="${#fields.hasErrors('curveId')}" th:errors="*{curveId}"></div>

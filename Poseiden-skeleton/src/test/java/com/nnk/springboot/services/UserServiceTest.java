@@ -48,27 +48,26 @@ public class UserServiceTest extends TestCase {
     @Test
     public void addUser_Should_Add_USer(){
         User user = new User();
+        user.setPassword("testPassword");
         when(userRepository.save(user)).thenReturn(new User());
         userService.addUser(user);
         verify(userRepository,times(1)).save(user);
     }
 
     @Test
-    public void updateUser_Should_Update_USer(){
+    public void updateUser_Should_Update_User(){
         User userToUpdate = new User();
         userToUpdate.setId(1);
 
         User user = new User("test01","test02","test03","test04");
-
-        User expectedUserSave = new User("test01","test02","test03","test04");
-        expectedUserSave.setId(1);
+        user.setId(1);
 
         when(userRepository.findById(1)).thenReturn(Optional.of(userToUpdate));
         when(userRepository.save(userToUpdate)).thenReturn(new User());
 
         userService.updateUserById(1,user);
 
-        verify(userRepository,times(1)).save(expectedUserSave);
+        verify(userRepository,times(1)).save(userToUpdate);
     }
 
     @Test

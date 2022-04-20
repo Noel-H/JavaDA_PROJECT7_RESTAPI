@@ -33,4 +33,10 @@ public class HomeController {
 		log.info("GET /admin/home");
 		return "redirect:/bidList/list";
 	}
+
+//	@RequestMapping("/*")
+//	public String getGithub() {
+//		log.info("GET /*");
+//		return "home";
+//	}
 }

@@ -3,10 +3,12 @@ package com.nnk.springboot.services;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * User Service
@@ -16,7 +18,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
 
     /**
      * Get a list of all user
@@ -36,12 +37,17 @@ public class UserService {
                 .orElseThrow(() -> new EntityNotFoundException("User : " +id+ " not found"));
     }
 
+    public Optional<User> getUserByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
+
     /**
      * Add a new user
      * @param user is the user that need be added
      * @return the added user
      */
     public User addUser(User user) {
+        user.setPassword(encodePassword(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -55,7 +61,7 @@ public class UserService {
     public User updateUserById(Integer id, User user) {
         User userToUpdate = getUserById(id);
         userToUpdate.setUsername(user.getUsername());
-        userToUpdate.setPassword(user.getPassword());
+        userToUpdate.setPassword(encodePassword(user.getPassword()));
         userToUpdate.setFullname(user.getFullname());
         userToUpdate.setRole(user.getRole());
         return userRepository.save(userToUpdate);
@@ -70,5 +76,15 @@ public class UserService {
         User userToDelete = getUserById(id);
         userRepository.delete(userToDelete);
         return userToDelete;
+    }
+
+    /**
+     * Encode a password
+     * @param password is the password that need to be encoded
+     * @return the encoded password
+     */
+    private String encodePassword(String password){
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder.encode(password);
     }
 }

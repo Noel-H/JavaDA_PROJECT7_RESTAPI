@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Oauth2 added">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="test fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/controllers/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/security/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/bidList/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/curvePoint/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/rating/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/ruleName/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/templates/trade/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/BidListControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/CurvePointControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/CurvePointControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/HomeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/HomeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/RatingControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/RatingControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/RuleNameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/RuleNameControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/TradeControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/TradeControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/controllers/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/test/java/com/nnk/springboot/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit3 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="JUnit3 Test Class" />
+        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -74,6 +66,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -95,6 +88,7 @@
       <recent name="junit.framework.TestCase" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.nnk.springboot" />
       <recent name="com.nnk.springboot.services" />
       <recent name="com.nnk.springboot.controllers" />
     </key>
@@ -110,32 +104,24 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.nnk.springboot in spring-boot-skeleton">
-    <configuration name="All in spring-boot-skeleton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="spring-boot-skeleton" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.addUser_Should_Add_USer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="ApplicationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nnk.springboot.services.*" />
+          <option name="PATTERN" value="com.nnk.springboot.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="addUser_Should_Add_USer" />
+      <option name="PACKAGE_NAME" value="com.nnk.springboot" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.ApplicationTest" />
+      <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTest.updateUser_Should_Update_USer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomUserDetailsServiceTest.loadUserByUsernameShouldReturnUserDetails" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
         <pattern>
@@ -144,8 +130,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
-      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.UserServiceTest" />
-      <option name="METHOD_NAME" value="updateUser_Should_Update_USer" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.CustomUserDetailsServiceTest" />
+      <option name="METHOD_NAME" value="loadUserByUsernameShouldReturnUserDetails" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomUserDetailsServiceTest.loadUserByUsernameShouldThrowException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot-skeleton" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nnk.springboot.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nnk.springboot.services" />
+      <option name="MAIN_CLASS_NAME" value="com.nnk.springboot.services.CustomUserDetailsServiceTest" />
+      <option name="METHOD_NAME" value="loadUserByUsernameShouldThrowException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,10 +193,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.com.nnk.springboot in spring-boot-skeleton" />
+        <item itemvalue="JUnit.ApplicationTest.contextLoads" />
+        <item itemvalue="JUnit.CustomUserDetailsServiceTest.loadUserByUsernameShouldThrowException" />
+        <item itemvalue="JUnit.CustomUserDetailsServiceTest.loadUserByUsernameShouldReturnUserDetails" />
         <item itemvalue="JUnit.UserServiceTest.updateUser_Should_Update_User" />
-        <item itemvalue="JUnit.UserServiceTest.updateUser_Should_Update_USer" />
-        <item itemvalue="JUnit.UserServiceTest.addUser_Should_Add_USer" />
-        <item itemvalue="JUnit.All in spring-boot-skeleton" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +215,7 @@
       <workItem from="1649699112918" duration="1320000" />
       <workItem from="1649799065012" duration="27623000" />
       <workItem from="1649926397366" duration="2944000" />
-      <workItem from="1650465433286" duration="7041000" />
+      <workItem from="1650465433286" duration="14937000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1648648757305</created>
@@ -460,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650471214785</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="test fixed">
+      <created>1650473336895</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1650473336895</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +488,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="application can boot" />
     <MESSAGE value="Initial commit" />
     <MESSAGE value="/bidList/list mapping added" />
     <MESSAGE value="BidList entity modified" />
@@ -504,7 +512,8 @@
     <MESSAGE value="Some class refactored" />
     <MESSAGE value="Test added" />
     <MESSAGE value="Oauth2 added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oauth2 added" />
+    <MESSAGE value="test fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="test fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

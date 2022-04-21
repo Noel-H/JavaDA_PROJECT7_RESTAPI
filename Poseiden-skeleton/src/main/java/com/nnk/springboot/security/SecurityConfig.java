@@ -48,10 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .and()
-                .oauth2Login()
-                .and()
-                .logout()
-                .logoutUrl("/app-logout")
-                .logoutSuccessUrl("/");
+                .oauth2Login();
     }
 }

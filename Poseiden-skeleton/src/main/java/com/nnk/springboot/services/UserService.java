@@ -45,6 +45,11 @@ public class UserService {
                 .orElseThrow(() -> new EntityNotFoundException("User : " +id+ " not found"));
     }
 
+    /**
+     * Get a user by a username
+     * @param username is the username to get
+     * @return Optional of User
+     */
     public Optional<User> getUserByUsername(String username){
         return userRepository.findByUsername(username);
     }
@@ -62,6 +67,11 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    /**
+     * Check if a user exist by a username
+     * @param username is the username to check
+     * @return true if the username exist
+     */
     private boolean isUserExistByUsername(String username) {
         return userRepository.existsByUsername(username);
     }
@@ -102,6 +112,10 @@ public class UserService {
         return bCryptPasswordEncoder.encode(password);
     }
 
+    /**
+     * Get the username
+     * @return the username
+     */
     public String getUsername(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof OAuth2AuthenticationToken) {
@@ -112,10 +126,18 @@ public class UserService {
         }
     }
 
+    /**
+     * Check if the role is equal to ADMIN
+     * @return true if the role is equal to ADMIN
+     */
     public boolean isRoleAdmin(){
         return getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"));
     }
 
+    /**
+     * Get the authentication
+     * @return the authentication
+     */
     public Authentication getAuthentication(){
         return SecurityContextHolder.getContext().getAuthentication();
     }

@@ -17,7 +17,6 @@ public class RuleNameService {
     @Autowired
     private RuleNameRepository ruleNameRepository;
 
-
     /**
      * Get a list of all ruleName
      * @return a list of all ruleName

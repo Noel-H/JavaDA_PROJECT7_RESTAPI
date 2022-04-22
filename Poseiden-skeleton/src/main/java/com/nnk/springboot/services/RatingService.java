@@ -17,7 +17,6 @@ public class RatingService {
     @Autowired
     private RatingRepository ratingRepository;
 
-
     /**
      * Get a list of all rating
      * @return a list of all rating

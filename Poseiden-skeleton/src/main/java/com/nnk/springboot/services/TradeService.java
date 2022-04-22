@@ -17,7 +17,6 @@ public class TradeService {
     @Autowired
     private TradeRepository tradeRepository;
 
-
     /**
      * Get a list of all trade
      * @return a list of all trade

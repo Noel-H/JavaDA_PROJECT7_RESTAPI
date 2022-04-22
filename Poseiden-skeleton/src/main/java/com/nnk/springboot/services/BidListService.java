@@ -17,7 +17,6 @@ public class BidListService {
     @Autowired
     private BidListRepository bidListRepository;
 
-
     /**
      * Get a list of all bid
      * @return a list of all bid

@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * Security Configuration
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -19,6 +22,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    /**
+     * Get a provider when there is an authentication request
+     * @return a Provider
+     */
     @Bean
     AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider
@@ -28,11 +35,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return provider;
     }
 
+    /**
+     * Encode password
+     * @return a BCryptPasswordEncoder
+     */
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Configuration of http
+     * @param http to be configured
+     * @throws Exception in certain case
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http

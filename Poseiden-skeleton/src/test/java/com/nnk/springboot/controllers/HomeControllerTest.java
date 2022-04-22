@@ -24,13 +24,6 @@ public class HomeControllerTest extends TestCase {
     @Test
     public void home_Should_Return_Ok() throws Exception{
         mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("home"));
-    }
-
-    @Test
-    public void adminHome_Should_Return_Ok() throws Exception{
-        mockMvc.perform(get("/admin/home"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/bidList/list"));
     }

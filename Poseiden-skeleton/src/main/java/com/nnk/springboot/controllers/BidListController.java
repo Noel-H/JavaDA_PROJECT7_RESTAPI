@@ -34,6 +34,8 @@ public class BidListController {
     public String home(Model model) {
         log.info("GET /bidList/list");
         model.addAttribute("bidListList",bidListService.getBidListList());
+        model.addAttribute("username", "test"); // implementer une methode pour obtenir le nom du compte
+        model.addAttribute("isUser",true); //implementer une methode pour obtenir un boolean en fonction du role
         return "bidList/list";
     }
 

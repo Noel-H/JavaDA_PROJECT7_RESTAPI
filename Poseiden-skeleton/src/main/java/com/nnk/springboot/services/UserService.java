@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.util.Collection;
 import java.util.List;
@@ -53,11 +54,17 @@ public class UserService {
      * @param user is the user that need be added
      * @return the added user
      */
-    public User addUser(User user) {
+    public User addUser(User user) throws EntityExistsException{
+        if (isUserExistByUsername(user.getUsername())){
+            throw new EntityExistsException("User déjà existant : "+user.getUsername());
+        }
         user.setPassword(encodePassword(user.getPassword()));
         return userRepository.save(user);
     }
 
+    private boolean isUserExistByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
 
     /**
      * Update a user
@@ -106,7 +113,10 @@ public class UserService {
     }
 
     public boolean isRoleAdmin(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication.getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"));
+        return getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ADMIN"));
+    }
+
+    public Authentication getAuthentication(){
+        return SecurityContextHolder.getContext().getAuthentication();
     }
 }

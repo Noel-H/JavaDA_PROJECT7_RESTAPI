@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 
@@ -32,7 +33,7 @@ public class UserController {
      */
     @RequestMapping("/user/list")
     public String home(Model model) {
-        log.info("GET /user/list");
+        log.info("GET /user/list : {}",userService.getUsername());
         model.addAttribute("userList",userService.getUserList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -47,7 +48,7 @@ public class UserController {
      */
     @GetMapping("/user/add")
     public String addUserForm(User user, Model model) {
-        log.info("GET /user/add");
+        log.info("GET /user/add : {}",userService.getUsername());
         model.addAttribute("user", user);
         return "user/add";
     }
@@ -61,12 +62,16 @@ public class UserController {
      */
     @PostMapping("/user/validate")
     public String validate(@Valid User user, BindingResult result, Model model) {
-        log.info("POST /user/validate");
+        log.info("POST /user/validate : {}",userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /user/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /user/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "user/add";
         }
-        userService.addUser(user);
+        try {
+            userService.addUser(user);
+        } catch (EntityExistsException e){
+            log.error("POST /user/validate : {} : Error - {}",userService.getUsername(), e.getMessage());
+        }
         model.addAttribute("userList",userService.getUserList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -81,12 +86,12 @@ public class UserController {
      */
     @GetMapping("/user/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /user/update/{}",id);
+        log.info("GET /user/update/{} : {}",id, userService.getUsername());
         User user;
         try{
             user = userService.getUserById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /user/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /user/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("userList",userService.getUserList());
             return "user/list";
         }
@@ -104,9 +109,9 @@ public class UserController {
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
                             BindingResult result) {
-        log.info("POST /user/update/{}",id);
+        log.info("POST /user/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /user/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /user/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "user/update";
         }
         userService.updateUserById(id, user);
@@ -120,11 +125,11 @@ public class UserController {
      */
     @GetMapping("/user/delete/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
-        log.info("GET /user/delete/{}",id);
+        log.info("GET /user/delete/{} : {}", id, userService.getUsername());
         try{
             userService.deleteUserById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /user/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /user/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/user/list";
     }

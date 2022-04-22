@@ -36,7 +36,7 @@ public class CurveController {
      */
     @RequestMapping("/curvePoint/list")
     public String home(Model model) {
-        log.info("GET /curvePoint/list");
+        log.info("GET /curvePoint/list : {}", userService.getUsername());
         model.addAttribute("curvePointList",curvePointService.getCurvePointList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -51,7 +51,7 @@ public class CurveController {
      */
     @GetMapping("/curvePoint/add")
     public String addCurvePointForm(CurvePoint curvePoint, Model model) {
-        log.info("GET /curvePoint/add");
+        log.info("GET /curvePoint/add : {}", userService.getUsername());
         model.addAttribute("curvePoint", curvePoint);
         return "curvePoint/add";
     }
@@ -65,9 +65,9 @@ public class CurveController {
      */
     @PostMapping("/curvePoint/validate")
     public String validate(@Valid CurvePoint curvePoint, BindingResult result, Model model) {
-        log.info("POST /curvePoint/validate");
+        log.info("POST /curvePoint/validate : {}", userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /curvePoint/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /curvePoint/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "curvePoint/add";
         }
         curvePointService.addCurvePoint(curvePoint);
@@ -85,12 +85,12 @@ public class CurveController {
      */
     @GetMapping("/curvePoint/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /curvePoint/update/{}",id);
+        log.info("GET /curvePoint/update/{} : {}",id, userService.getUsername());
         CurvePoint curvePoint;
         try{
             curvePoint = curvePointService.getCurvePointById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /curvePoint/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /curvePoint/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("curvePointList",curvePointService.getCurvePointList());
             model.addAttribute("username", userService.getUsername());
             model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -110,9 +110,9 @@ public class CurveController {
     @PostMapping("/curvePoint/update/{id}")
     public String updateCurvePoint(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
                              BindingResult result) {
-        log.info("POST /curvePoint/update/{}",id);
+        log.info("POST /curvePoint/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /curvePoint/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /curvePoint/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "curvePoint/update";
         }
         curvePointService.updateCurvePointById(id, curvePoint);
@@ -126,11 +126,11 @@ public class CurveController {
      */
     @GetMapping("/curvePoint/delete/{id}")
     public String deleteCurvePoint(@PathVariable("id") Integer id) {
-        log.info("GET /curvePoint/delete/{}",id);
+        log.info("GET /curvePoint/delete/{} : {}", id, userService.getUsername());
         try{
             curvePointService.deleteCurvePointById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /curvePoint/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /curvePoint/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/curvePoint/list";
     }

@@ -36,7 +36,7 @@ public class TradeController {
      */
     @RequestMapping("/trade/list")
     public String home(Model model) {
-        log.info("GET /trade/list");
+        log.info("GET /trade/list : {}", userService.getUsername());
         model.addAttribute("tradeList",tradeService.getTradeList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -51,7 +51,7 @@ public class TradeController {
      */
     @GetMapping("/trade/add")
     public String addTradeForm(Trade trade, Model model) {
-        log.info("GET /trade/add");
+        log.info("GET /trade/add : {}", userService.getUsername());
         model.addAttribute("trade", trade);
         return "trade/add";
     }
@@ -65,9 +65,9 @@ public class TradeController {
      */
     @PostMapping("/trade/validate")
     public String validate(@Valid Trade trade, BindingResult result, Model model) {
-        log.info("POST /trade/validate");
+        log.info("POST /trade/validate : {}", userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /trade/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /trade/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "trade/add";
         }
         tradeService.addTrade(trade);
@@ -85,12 +85,12 @@ public class TradeController {
      */
     @GetMapping("/trade/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /trade/update/{}",id);
+        log.info("GET /trade/update/{} : {}",id, userService.getUsername());
         Trade trade;
         try{
             trade = tradeService.getTradeById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /trade/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /trade/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("tradeList",tradeService.getTradeList());
             model.addAttribute("username", userService.getUsername());
             model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -110,9 +110,9 @@ public class TradeController {
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
                             BindingResult result) {
-        log.info("POST /trade/update/{}",id);
+        log.info("POST /trade/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /trade/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /trade/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "trade/update";
         }
         tradeService.updateTradeById(id, trade);
@@ -126,11 +126,11 @@ public class TradeController {
      */
     @GetMapping("/trade/delete/{id}")
     public String deleteTrade(@PathVariable("id") Integer id) {
-        log.info("GET /trade/delete/{}",id);
+        log.info("GET /trade/delete/{} : {}", id, userService.getUsername());
         try{
             tradeService.deleteTradeById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /trade/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /trade/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/trade/list";
     }

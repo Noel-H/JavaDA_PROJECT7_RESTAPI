@@ -36,7 +36,7 @@ public class BidListController {
      */
     @RequestMapping("/bidList/list")
     public String home(Model model) {
-        log.info("GET /bidList/list");
+        log.info("GET /bidList/list : {}", userService.getUsername());
         model.addAttribute("bidListList",bidListService.getBidListList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -51,7 +51,7 @@ public class BidListController {
      */
     @GetMapping("/bidList/add")
     public String addBidForm(BidList bid, Model model) {
-        log.info("GET /bidList/add");
+        log.info("GET /bidList/add : {}", userService.getUsername());
         model.addAttribute("bidList", bid);
         return "bidList/add";
     }
@@ -65,9 +65,9 @@ public class BidListController {
      */
     @PostMapping("/bidList/validate")
     public String validate(@Valid BidList bid, BindingResult result, Model model) {
-        log.info("POST /bidList/validate");
+        log.info("POST /bidList/validate : {}", userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /bidList/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /bidList/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "bidList/add";
         }
         bidListService.addBidList(bid);
@@ -85,12 +85,12 @@ public class BidListController {
      */
     @GetMapping("/bidList/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /bidList/update/{}",id);
+        log.info("GET /bidList/update/{} : {}",id, userService.getUsername());
         BidList bidList;
         try{
             bidList = bidListService.getBidListById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /bidList/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /bidList/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("bidListList",bidListService.getBidListList());
             model.addAttribute("username", userService.getUsername());
             model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -110,9 +110,9 @@ public class BidListController {
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
                             BindingResult result) {
-        log.info("POST /bidList/update/{}",id);
+        log.info("POST /bidList/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /bidList/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /bidList/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "bidList/update";
         }
         bidListService.updateBidListById(id, bidList);
@@ -126,11 +126,11 @@ public class BidListController {
      */
     @GetMapping("/bidList/delete/{id}")
     public String deleteBid(@PathVariable("id") Integer id) {
-        log.info("GET /bidList/delete/{}",id);
+        log.info("GET /bidList/delete/{} : {}", id, userService.getUsername());
         try{
             bidListService.deleteBidListById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /bidList/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /bidList/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/bidList/list";
     }

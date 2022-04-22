@@ -36,7 +36,7 @@ public class RuleNameController {
      */
     @RequestMapping("/ruleName/list")
     public String home(Model model) {
-        log.info("GET /ruleName/list");
+        log.info("GET /ruleName/list : {}", userService.getUsername());
         model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -51,7 +51,7 @@ public class RuleNameController {
      */
     @GetMapping("/ruleName/add")
     public String addRuleNameForm(RuleName ruleName, Model model) {
-        log.info("GET /ruleName/add");
+        log.info("GET /ruleName/add : {}", userService.getUsername());
         model.addAttribute("ruleName", ruleName);
         return "ruleName/add";
     }
@@ -65,9 +65,9 @@ public class RuleNameController {
      */
     @PostMapping("/ruleName/validate")
     public String validate(@Valid RuleName ruleName, BindingResult result, Model model) {
-        log.info("POST /ruleName/validate");
+        log.info("POST /ruleName/validate : {}", userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /ruleName/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /ruleName/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "ruleName/add";
         }
         ruleNameService.addRuleName(ruleName);
@@ -85,12 +85,12 @@ public class RuleNameController {
      */
     @GetMapping("/ruleName/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /ruleName/update/{}",id);
+        log.info("GET /ruleName/update/{} : {}",id, userService.getUsername());
         RuleName ruleName;
         try{
             ruleName = ruleNameService.getRuleNameById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /ruleName/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /ruleName/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
             model.addAttribute("username", userService.getUsername());
             model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -110,9 +110,9 @@ public class RuleNameController {
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
                             BindingResult result) {
-        log.info("POST /ruleName/update/{}",id);
+        log.info("POST /ruleName/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /ruleName/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /ruleName/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "ruleName/update";
         }
         ruleNameService.updateRuleNameById(id, ruleName);
@@ -126,11 +126,11 @@ public class RuleNameController {
      */
     @GetMapping("/ruleName/delete/{id}")
     public String deleteRuleName(@PathVariable("id") Integer id) {
-        log.info("GET /ruleName/delete/{}",id);
+        log.info("GET /ruleName/delete/{} : {}", id, userService.getUsername());
         try{
             ruleNameService.deleteRuleNameById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /ruleName/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /ruleName/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/ruleName/list";
     }

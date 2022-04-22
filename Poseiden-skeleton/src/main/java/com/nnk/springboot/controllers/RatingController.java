@@ -36,7 +36,7 @@ public class RatingController {
      */
     @RequestMapping("/rating/list")
     public String home(Model model) {
-        log.info("GET /rating/list");
+        log.info("GET /rating/list : {}", userService.getUsername());
         model.addAttribute("ratingList",ratingService.getRatingList());
         model.addAttribute("username", userService.getUsername());
         model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -51,7 +51,7 @@ public class RatingController {
      */
     @GetMapping("/rating/add")
     public String addRatingForm(Rating rating, Model model) {
-        log.info("GET /rating/add");
+        log.info("GET /rating/add : {}", userService.getUsername());
         model.addAttribute("rating", rating);
         return "rating/add";
     }
@@ -65,9 +65,9 @@ public class RatingController {
      */
     @PostMapping("/rating/validate")
     public String validate(@Valid Rating rating, BindingResult result, Model model) {
-        log.info("POST /rating/validate");
+        log.info("POST /rating/validate : {}", userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /rating/validate : {} ERROR - {}",result.getErrorCount(), result.getAllErrors());
+            log.error("POST /rating/validate : {} : {} ERROR - {}",userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "rating/add";
         }
         ratingService.addRating(rating);
@@ -85,12 +85,12 @@ public class RatingController {
      */
     @GetMapping("/rating/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-        log.info("GET /rating/update/{}",id);
+        log.info("GET /rating/update/{} : {}",id, userService.getUsername());
         Rating rating;
         try{
             rating = ratingService.getRatingById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /rating/update/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /rating/update/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
             model.addAttribute("ratingList",ratingService.getRatingList());
             model.addAttribute("username", userService.getUsername());
             model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
@@ -110,9 +110,9 @@ public class RatingController {
     @PostMapping("/rating/update/{id}")
     public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
                             BindingResult result) {
-        log.info("POST /rating/update/{}",id);
+        log.info("POST /rating/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
-            log.error("POST /rating/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
+            log.error("POST /rating/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());
             return "rating/update";
         }
         ratingService.updateRatingById(id, rating);
@@ -126,11 +126,11 @@ public class RatingController {
      */
     @GetMapping("/rating/delete/{id}")
     public String deleteRating(@PathVariable("id") Integer id) {
-        log.info("GET /rating/delete/{}",id);
+        log.info("GET /rating/delete/{} : {}", id, userService.getUsername());
         try{
             ratingService.deleteRatingById(id);
         } catch (EntityNotFoundException e){
-            log.error("GET /rating/delete/{} : ERROR - {}",id, e.getMessage());
+            log.error("GET /rating/delete/{} : {} : ERROR - {}",id, userService.getUsername(), e.getMessage());
         }
         return "redirect:/rating/list";
     }

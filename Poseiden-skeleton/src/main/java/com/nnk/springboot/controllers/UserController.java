@@ -108,7 +108,7 @@ public class UserController {
      */
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
-                            BindingResult result) {
+                             BindingResult result) {
         log.info("POST /user/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
             log.error("POST /user/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());

@@ -109,7 +109,7 @@ public class CurveController {
      */
     @PostMapping("/curvePoint/update/{id}")
     public String updateCurvePoint(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
-                             BindingResult result) {
+                                   BindingResult result) {
         log.info("POST /curvePoint/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
             log.error("POST /curvePoint/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());

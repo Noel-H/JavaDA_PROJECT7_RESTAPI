@@ -109,7 +109,7 @@ public class RatingController {
      */
     @PostMapping("/rating/update/{id}")
     public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
-                            BindingResult result) {
+                               BindingResult result) {
         log.info("POST /rating/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
             log.error("POST /rating/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());

@@ -109,7 +109,7 @@ public class TradeController {
      */
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
-                            BindingResult result) {
+                              BindingResult result) {
         log.info("POST /trade/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
             log.error("POST /trade/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());

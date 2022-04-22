@@ -109,7 +109,7 @@ public class RuleNameController {
      */
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
-                            BindingResult result) {
+                                 BindingResult result) {
         log.info("POST /ruleName/update/{} : {}", id, userService.getUsername());
         if (result.hasErrors()){
             log.error("POST /ruleName/update/{} : {} : {} ERROR - {}", id, userService.getUsername(), result.getErrorCount(), result.getAllErrors());

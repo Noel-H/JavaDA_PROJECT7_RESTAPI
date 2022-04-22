@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.services.TradeService;
+import com.nnk.springboot.services.UserService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,9 @@ public class TradeControllerTest extends TestCase {
 
     @MockBean
     private TradeService tradeService;
+
+    @MockBean
+    private UserService userService;
 
     @Test
     public void home_Should_Return_Ok() throws Exception{

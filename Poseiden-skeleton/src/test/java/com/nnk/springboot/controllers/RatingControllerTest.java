@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.services.RatingService;
+import com.nnk.springboot.services.UserService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,9 @@ public class RatingControllerTest extends TestCase {
 
     @MockBean
     private RatingService ratingService;
+
+    @MockBean
+    private UserService userService;
 
     @Test
     public void home_Should_Return_Ok() throws Exception{

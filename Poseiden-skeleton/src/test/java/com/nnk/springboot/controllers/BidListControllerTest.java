@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.services.BidListService;
+import com.nnk.springboot.services.UserService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,9 @@ public class BidListControllerTest extends TestCase {
 
     @MockBean
     private BidListService bidListService;
+
+    @MockBean
+    private UserService userService;
 
     @Test
     public void home_Should_Return_Ok() throws Exception{

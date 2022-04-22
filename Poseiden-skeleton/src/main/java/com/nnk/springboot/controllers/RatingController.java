@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Rating;
 import com.nnk.springboot.services.RatingService;
+import com.nnk.springboot.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class RatingController {
     @Autowired
     private RatingService ratingService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Get /rating/list
      * @param model is used for the html template
@@ -34,6 +38,8 @@ public class RatingController {
     public String home(Model model) {
         log.info("GET /rating/list");
         model.addAttribute("ratingList",ratingService.getRatingList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "rating/list";
     }
 
@@ -66,6 +72,8 @@ public class RatingController {
         }
         ratingService.addRating(rating);
         model.addAttribute("ratingList",ratingService.getRatingList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "rating/list";
     }
 
@@ -84,6 +92,8 @@ public class RatingController {
         } catch (EntityNotFoundException e){
             log.error("GET /rating/update/{} : ERROR - {}",id, e.getMessage());
             model.addAttribute("ratingList",ratingService.getRatingList());
+            model.addAttribute("username", userService.getUsername());
+            model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
             return "rating/list";
         }
         model.addAttribute("rating", rating);
@@ -95,37 +105,33 @@ public class RatingController {
      * @param id is the id of the rating to update
      * @param rating is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/rating/list if no error or rating/update if error
      */
     @PostMapping("/rating/update/{id}")
     public String updateRating(@PathVariable("id") Integer id, @Valid Rating rating,
-                            BindingResult result, Model model) {
+                            BindingResult result) {
         log.info("POST /rating/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /rating/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "rating/update";
         }
         ratingService.updateRatingById(id, rating);
-        model.addAttribute("ratingList",ratingService.getRatingList());
         return "redirect:/rating/list";
     }
 
     /**
      * Get /rating/delete/{id}
      * @param id is the id of the rating to delete
-     * @param model is used for the html template
      * @return redirect:/rating/list
      */
     @GetMapping("/rating/delete/{id}")
-    public String deleteRating(@PathVariable("id") Integer id, Model model) {
+    public String deleteRating(@PathVariable("id") Integer id) {
         log.info("GET /rating/delete/{}",id);
         try{
             ratingService.deleteRatingById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /rating/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("ratingList",ratingService.getRatingList());
         return "redirect:/rating/list";
     }
 }

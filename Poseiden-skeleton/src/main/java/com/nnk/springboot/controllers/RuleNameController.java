@@ -1,8 +1,8 @@
 package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.RuleName;
-import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.services.RuleNameService;
+import com.nnk.springboot.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +26,9 @@ public class RuleNameController {
     @Autowired
     private RuleNameService ruleNameService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Get /ruleName/list
      * @param model is used for the html template
@@ -35,6 +38,8 @@ public class RuleNameController {
     public String home(Model model) {
         log.info("GET /ruleName/list");
         model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "ruleName/list";
     }
 
@@ -67,6 +72,8 @@ public class RuleNameController {
         }
         ruleNameService.addRuleName(ruleName);
         model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "ruleName/list";
     }
 
@@ -85,6 +92,8 @@ public class RuleNameController {
         } catch (EntityNotFoundException e){
             log.error("GET /ruleName/update/{} : ERROR - {}",id, e.getMessage());
             model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
+            model.addAttribute("username", userService.getUsername());
+            model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
             return "ruleName/list";
         }
         model.addAttribute("ruleName", ruleName);
@@ -96,37 +105,33 @@ public class RuleNameController {
      * @param id is the id of the ruleName to update
      * @param ruleName is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/ruleName/list if no error or ruleName/update if error
      */
     @PostMapping("/ruleName/update/{id}")
     public String updateRuleName(@PathVariable("id") Integer id, @Valid RuleName ruleName,
-                            BindingResult result, Model model) {
+                            BindingResult result) {
         log.info("POST /ruleName/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /ruleName/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "ruleName/update";
         }
         ruleNameService.updateRuleNameById(id, ruleName);
-        model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
         return "redirect:/ruleName/list";
     }
 
     /**
      * Get /ruleName/delete/{id}
      * @param id is the id of the ruleName to delete
-     * @param model is used for the html template
      * @return redirect:/ruleName/list
      */
     @GetMapping("/ruleName/delete/{id}")
-    public String deleteRuleName(@PathVariable("id") Integer id, Model model) {
+    public String deleteRuleName(@PathVariable("id") Integer id) {
         log.info("GET /ruleName/delete/{}",id);
         try{
             ruleNameService.deleteRuleNameById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /ruleName/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("ruleNameList",ruleNameService.getRuleNameList());
         return "redirect:/ruleName/list";
     }
 }

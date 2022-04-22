@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.services.BidListService;
+import com.nnk.springboot.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class BidListController {
     @Autowired
     private BidListService bidListService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Get /bidList/list
      * @param model is used for the html template
@@ -34,8 +38,8 @@ public class BidListController {
     public String home(Model model) {
         log.info("GET /bidList/list");
         model.addAttribute("bidListList",bidListService.getBidListList());
-        model.addAttribute("username", "test"); // implementer une methode pour obtenir le nom du compte
-        model.addAttribute("isUser",true); //implementer une methode pour obtenir un boolean en fonction du role
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "bidList/list";
     }
 
@@ -68,6 +72,8 @@ public class BidListController {
         }
         bidListService.addBidList(bid);
         model.addAttribute("bidListList",bidListService.getBidListList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "bidList/list";
     }
 
@@ -86,6 +92,8 @@ public class BidListController {
         } catch (EntityNotFoundException e){
             log.error("GET /bidList/update/{} : ERROR - {}",id, e.getMessage());
             model.addAttribute("bidListList",bidListService.getBidListList());
+            model.addAttribute("username", userService.getUsername());
+            model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
             return "bidList/list";
         }
         model.addAttribute("bidList", bidList);
@@ -97,37 +105,33 @@ public class BidListController {
      * @param id is the id of the bid to update
      * @param bidList is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/bidList/list if no error or bidList/update if error
      */
     @PostMapping("/bidList/update/{id}")
     public String updateBid(@PathVariable("id") Integer id, @Valid BidList bidList,
-                            BindingResult result, Model model) {
+                            BindingResult result) {
         log.info("POST /bidList/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /bidList/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "bidList/update";
         }
         bidListService.updateBidListById(id, bidList);
-        model.addAttribute("bidListList",bidListService.getBidListList());
         return "redirect:/bidList/list";
     }
 
     /**
      * Get /bidList/delete/{id}
      * @param id is the id of the bid to delete
-     * @param model is used for the html template
      * @return redirect:/bidList/list
      */
     @GetMapping("/bidList/delete/{id}")
-    public String deleteBid(@PathVariable("id") Integer id, Model model) {
+    public String deleteBid(@PathVariable("id") Integer id) {
         log.info("GET /bidList/delete/{}",id);
         try{
             bidListService.deleteBidListById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /bidList/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("bidListList",bidListService.getBidListList());
         return "redirect:/bidList/list";
     }
 }

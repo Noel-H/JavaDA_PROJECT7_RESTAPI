@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.CurvePoint;
 import com.nnk.springboot.services.CurvePointService;
+import com.nnk.springboot.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class CurveController {
     @Autowired
     private CurvePointService curvePointService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Get /curvePoint/list
      * @param model is used for the html template
@@ -34,6 +38,8 @@ public class CurveController {
     public String home(Model model) {
         log.info("GET /curvePoint/list");
         model.addAttribute("curvePointList",curvePointService.getCurvePointList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "curvePoint/list";
     }
 
@@ -66,6 +72,8 @@ public class CurveController {
         }
         curvePointService.addCurvePoint(curvePoint);
         model.addAttribute("curvePointList",curvePointService.getCurvePointList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "curvePoint/list";
     }
 
@@ -84,6 +92,8 @@ public class CurveController {
         } catch (EntityNotFoundException e){
             log.error("GET /curvePoint/update/{} : ERROR - {}",id, e.getMessage());
             model.addAttribute("curvePointList",curvePointService.getCurvePointList());
+            model.addAttribute("username", userService.getUsername());
+            model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
             return "curvePoint/list";
         }
         model.addAttribute("curvePoint", curvePoint);
@@ -95,38 +105,33 @@ public class CurveController {
      * @param id is the id of the curvePoint to update
      * @param curvePoint is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/curvePoint/list if no error or curvePoint/update if error
      */
     @PostMapping("/curvePoint/update/{id}")
     public String updateCurvePoint(@PathVariable("id") Integer id, @Valid CurvePoint curvePoint,
-                             BindingResult result, Model model) {
+                             BindingResult result) {
         log.info("POST /curvePoint/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /curvePoint/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "curvePoint/update";
         }
         curvePointService.updateCurvePointById(id, curvePoint);
-        model.addAttribute("curvePointList",curvePointService.getCurvePointList());
         return "redirect:/curvePoint/list";
     }
 
     /**
      * Get /curvePoint/delete/{id}
      * @param id is the id of the curvePoint to delete
-     * @param model is used for the html template
      * @return redirect:/curvePoint/list
      */
     @GetMapping("/curvePoint/delete/{id}")
-    public String deleteCurvePoint(@PathVariable("id") Integer id, Model model) {
-        // TODO: Find Curve by Id and delete the Curve, return to Curve list
+    public String deleteCurvePoint(@PathVariable("id") Integer id) {
         log.info("GET /curvePoint/delete/{}",id);
         try{
             curvePointService.deleteCurvePointById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /curvePoint/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("curvePointList",curvePointService.getCurvePointList());
         return "redirect:/curvePoint/list";
     }
 }

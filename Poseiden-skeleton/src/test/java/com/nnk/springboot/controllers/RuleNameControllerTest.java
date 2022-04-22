@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.RuleName;
 import com.nnk.springboot.services.RuleNameService;
+import com.nnk.springboot.services.UserService;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,6 +34,9 @@ public class RuleNameControllerTest extends TestCase {
 
     @MockBean
     private RuleNameService ruleNameService;
+
+    @MockBean
+    private UserService userService;
 
     @Test
     public void home_Should_Return_Ok() throws Exception{

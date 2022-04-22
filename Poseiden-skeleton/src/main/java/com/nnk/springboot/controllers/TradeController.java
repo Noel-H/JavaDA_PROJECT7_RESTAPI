@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.Trade;
 import com.nnk.springboot.services.TradeService;
+import com.nnk.springboot.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class TradeController {
     @Autowired
     private TradeService tradeService;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * Get /trade/list
      * @param model is used for the html template
@@ -34,6 +38,8 @@ public class TradeController {
     public String home(Model model) {
         log.info("GET /trade/list");
         model.addAttribute("tradeList",tradeService.getTradeList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "trade/list";
     }
 
@@ -66,6 +72,8 @@ public class TradeController {
         }
         tradeService.addTrade(trade);
         model.addAttribute("tradeList",tradeService.getTradeList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "trade/list";
     }
 
@@ -84,6 +92,8 @@ public class TradeController {
         } catch (EntityNotFoundException e){
             log.error("GET /trade/update/{} : ERROR - {}",id, e.getMessage());
             model.addAttribute("tradeList",tradeService.getTradeList());
+            model.addAttribute("username", userService.getUsername());
+            model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
             return "trade/list";
         }
         model.addAttribute("trade", trade);
@@ -95,37 +105,33 @@ public class TradeController {
      * @param id is the id of the trade to update
      * @param trade is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/trade/list if no error or trade/update if error
      */
     @PostMapping("/trade/update/{id}")
     public String updateTrade(@PathVariable("id") Integer id, @Valid Trade trade,
-                            BindingResult result, Model model) {
+                            BindingResult result) {
         log.info("POST /trade/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /trade/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "trade/update";
         }
         tradeService.updateTradeById(id, trade);
-        model.addAttribute("tradeList",tradeService.getTradeList());
         return "redirect:/trade/list";
     }
 
     /**
      * Get /trade/delete/{id}
      * @param id is the id of the trade to delete
-     * @param model is used for the html template
      * @return redirect:/trade/list
      */
     @GetMapping("/trade/delete/{id}")
-    public String deleteTrade(@PathVariable("id") Integer id, Model model) {
+    public String deleteTrade(@PathVariable("id") Integer id) {
         log.info("GET /trade/delete/{}",id);
         try{
             tradeService.deleteTradeById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /trade/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("tradeList",tradeService.getTradeList());
         return "redirect:/trade/list";
     }
 }

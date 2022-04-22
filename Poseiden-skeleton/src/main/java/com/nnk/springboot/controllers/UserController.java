@@ -34,6 +34,8 @@ public class UserController {
     public String home(Model model) {
         log.info("GET /user/list");
         model.addAttribute("userList",userService.getUserList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "user/list";
     }
 
@@ -66,6 +68,8 @@ public class UserController {
         }
         userService.addUser(user);
         model.addAttribute("userList",userService.getUserList());
+        model.addAttribute("username", userService.getUsername());
+        model.addAttribute("isRoleAdmin",userService.isRoleAdmin());
         return "user/list";
     }
 
@@ -95,37 +99,33 @@ public class UserController {
      * @param id is the id of the user to update
      * @param user is the object that need to be validated
      * @param result is used to check if there is an error
-     * @param model is used for the html template
      * @return redirect:/user/list if no error or user/update if error
      */
     @PostMapping("/user/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid User user,
-                            BindingResult result, Model model) {
+                            BindingResult result) {
         log.info("POST /user/update/{}",id);
         if (result.hasErrors()){
             log.error("POST /user/update/{} : {} ERROR - {}",id, result.getErrorCount(), result.getAllErrors());
             return "user/update";
         }
         userService.updateUserById(id, user);
-        model.addAttribute("userList",userService.getUserList());
         return "redirect:/user/list";
     }
 
     /**
      * Get /user/delete/{id}
      * @param id is the id of the user to delete
-     * @param model is used for the html template
      * @return redirect:/user/list
      */
     @GetMapping("/user/delete/{id}")
-    public String deleteUser(@PathVariable("id") Integer id, Model model) {
+    public String deleteUser(@PathVariable("id") Integer id) {
         log.info("GET /user/delete/{}",id);
         try{
             userService.deleteUserById(id);
         } catch (EntityNotFoundException e){
             log.error("GET /user/delete/{} : ERROR - {}",id, e.getMessage());
         }
-        model.addAttribute("userList",userService.getUserList());
         return "redirect:/user/list";
     }
 }

@@ -15,7 +15,7 @@
 			<a href="/rating/list">Ratings</a>&nbsp;|&nbsp;
 			<a href="/trade/list">Trade</a>&nbsp;|&nbsp;
 			<a href="/ruleName/list">Rule</a>
-			<span th:hidden="${isUser}">&nbsp;|&nbsp;
+			<span th:if="${isRoleAdmin}">&nbsp;|&nbsp;
 			<a href="/user/list">User</a>
 			</span>
 		</div>
@@ -28,8 +28,7 @@
 	</div>
 	<div class="row"><h2>Bid List</h2></div>
 	<div class="row">
-		<a href="/bidList/add" class="btn btn-primary btn-sm" th:hidden="${isUser}">Add New</a>
-		<button type="button" class="btn btn-secondary btn-sm" th:hidden="${!isUser}">Add New</button>
+		<a href="/bidList/add" class="btn btn-primary btn-sm" th:if="${isRoleAdmin}">Add New</a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -37,7 +36,7 @@
 					<th>Account</th>
 					<th>Type</th>
 					<th>Bid Quantity</th>
-					<th>Action</th>
+					<th th:if="${isRoleAdmin}">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,15 +45,13 @@
 				<td th:text="${bidList.getAccount()}"></td>
 				<td th:text="${bidList.getType()}"></td>
 				<td th:text="${bidList.getBidQuantity()}"></td>
-				<td>
-					<a th:href="@{/bidList/update/{id}(id=${bidList.bidListId})}" style="text-decoration: none" th:hidden="${isUser}">
+				<td th:if="${isRoleAdmin}">
+					<a th:href="@{/bidList/update/{id}(id=${bidList.bidListId})}" style="text-decoration: none">
 						<button type="button" class="btn btn-warning">Edit</button>
 					</a>
-						<button type="button" class="btn btn-secondary" th:hidden="${!isUser}">Edit</button>
-					<a th:href="@{/bidList/delete/{id}(id=${bidList.bidListId})}" style="text-decoration: none" th:hidden="${isUser}">
+					<a th:href="@{/bidList/delete/{id}(id=${bidList.bidListId})}" style="text-decoration: none">
 						<button type="button" class="btn btn-danger">Delete</button>
 					</a>
-					<button type="button" class="btn btn-secondary" th:hidden="${!isUser}">Delete</button>
 				</td>
 			</tr>
 			</tbody>

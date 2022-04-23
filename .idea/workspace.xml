@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Github client-secret changed&#10;and application.properties added to gitinore">
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Test fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" afterDir="false" />
     </list>
@@ -105,7 +105,7 @@
       <command value="mvn site" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.com.nnk.springboot in spring-boot-skeleton">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="ApplicationTest.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring-boot-skeleton" />
       <extension name="coverage">
@@ -217,7 +217,7 @@
       <workItem from="1649799065012" duration="27623000" />
       <workItem from="1649926397366" duration="2944000" />
       <workItem from="1650465433286" duration="49167000" />
-      <workItem from="1650666318410" duration="7729000" />
+      <workItem from="1650666318410" duration="8717000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1648648757305</created>
@@ -548,7 +548,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650718652785</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Constraint updated for password in User">
+      <created>1650722000330</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1650722000330</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Test fixed">
+      <created>1650722249545</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1650722249545</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,8 +581,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rating entity and RatingRepository done and RatingService added" />
-    <MESSAGE value="Trade Entity done" />
     <MESSAGE value="Trade Repository and Service done" />
     <MESSAGE value="Trade Controller done" />
     <MESSAGE value="Trade html done" />
@@ -592,6 +604,8 @@
     <MESSAGE value="log modified for UserController and refactor and add template fixed" />
     <MESSAGE value="log updated" />
     <MESSAGE value="Github client-secret changed&#10;and application.properties added to gitinore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Github client-secret changed&#10;and application.properties added to gitinore" />
+    <MESSAGE value="Constraint updated for password in User" />
+    <MESSAGE value="Test fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test fixed" />
   </component>
 </project>

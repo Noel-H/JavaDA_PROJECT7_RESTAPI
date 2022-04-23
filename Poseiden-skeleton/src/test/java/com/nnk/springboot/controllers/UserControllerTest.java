@@ -55,7 +55,7 @@ public class UserControllerTest extends TestCase {
         when(userService.getUserList()).thenReturn(new ArrayList<>());
         mockMvc.perform(post("/user/validate")
                         .param("username","test01")
-                        .param("password","test02")
+                        .param("password","TEST1234test.")
                         .param("fullname","test03")
                         .param("role","test04")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))
@@ -128,12 +128,12 @@ public class UserControllerTest extends TestCase {
 
     @Test
     public void updateUser_Should_Return_Ok() throws Exception {
-        User user = new User("test01","test02","test03","test04");
+        User user = new User("test01","TEST1234test.","test03","test04");
         user.setId(1);
         when(userService.updateUserById(1,user)).thenReturn(new User());
         mockMvc.perform(post("/user/update/1")
                         .param("username","test01")
-                        .param("password","test02")
+                        .param("password","TEST1234test.")
                         .param("fullname","test03")
                         .param("role","test04")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED))

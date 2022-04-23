@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Code indented">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat.values.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/3882cf6e-3f59-40f7-89cb-d01c065975c9/entities/entities.dat_i" afterDir="false" />
+    <list default="true" id="80fe19b7-2a3d-44b7-b24d-c798bf2f44e9" name="Changes" comment="Github client-secret changed&#10;and application.properties added to gitinore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Poseiden-skeleton/src/main/java/com/nnk/springboot/domain/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/setup_spring_security" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -221,7 +217,7 @@
       <workItem from="1649799065012" duration="27623000" />
       <workItem from="1649926397366" duration="2944000" />
       <workItem from="1650465433286" duration="49167000" />
-      <workItem from="1650666318410" duration="3550000" />
+      <workItem from="1650666318410" duration="7729000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1648648757305</created>
@@ -545,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650663719394</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Github client-secret changed&#10;and application.properties added to gitinore">
+      <created>1650718652785</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1650718652785</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -564,7 +567,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="work done for TODO : Find Bid by Id and delete the bid, return to Bid list" />
     <MESSAGE value="Rating entity and RatingRepository done and RatingService added" />
     <MESSAGE value="Trade Entity done" />
     <MESSAGE value="Trade Repository and Service done" />
@@ -589,6 +591,7 @@
     <MESSAGE value="log modified for UserController and refactor" />
     <MESSAGE value="log modified for UserController and refactor and add template fixed" />
     <MESSAGE value="log updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="log updated" />
+    <MESSAGE value="Github client-secret changed&#10;and application.properties added to gitinore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Github client-secret changed&#10;and application.properties added to gitinore" />
   </component>
 </project>
